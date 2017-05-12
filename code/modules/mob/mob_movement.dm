@@ -372,11 +372,11 @@
 							n = get_step(mob, direct)
 			. = mob.SelfMove(n, direct)
 
-		for (var/obj/item/weapon/grab/G in mob)
-			if (G.state == GRAB_NECK)
-				mob.set_dir(reverse_dir[direct])
-			G.adjust_position()
-		for (var/obj/item/weapon/grab/G in mob.grabbed_by)
+		for (var/obj/item/grab/G in mob)
+			if (G.assailant_reverse_facing())
+				mob.set_dir(GLOB.reverse_dir[direct])
+			G.assailant_moved()
+		for (var/obj/item/grab/G in mob.grabbed_by)
 			G.adjust_position()
 
 		moving = 0

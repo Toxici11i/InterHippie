@@ -1135,7 +1135,6 @@ var/mob/dview/dview_mob = new
 /proc/crash_with(msg)
 	CRASH(msg)
 
-
 /proc/step_towards_3d(var/atom/movable/Ref, var/atom/movable/Trg)
 	if (!Ref || !Trg)
 		return 0
@@ -1161,3 +1160,6 @@ var/mob/dview/dview_mob = new
 		return 0
 
 	return 1
+
+/proc/pass()
+	return
