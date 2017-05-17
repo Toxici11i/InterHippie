@@ -1149,7 +1149,7 @@
 	New()
 		. = ..()
 		dpdir = dir | turn(dir, 180)
-		if(sort_tag) tagger_locations |= sort_tag
+		if(sort_tag) GLOB.tagger_locations |= sort_tag
 		updatename()
 		updatedesc()
 		update()
@@ -1196,13 +1196,13 @@
 	if(!id_tag)
 		id_tag = newid
 
-/obj/machinery/disposal_switch/initialize()
+/obj/machinery/disposal_switch/Initialize()
 	for(var/obj/structure/disposalpipe/diversion_junction/D in world)
 		if(D.id_tag && !D.linked && D.id_tag == src.id_tag)
 			junctions += D
 			D.linked = src
 
-	..()
+	. = ..()
 
 /obj/machinery/disposal_switch/Destroy()
 	junctions.Cut()
@@ -1376,7 +1376,7 @@
 
 	New()
 		. = ..()
-		if(sortType) tagger_locations |= sortType
+		if(sortType) GLOB.tagger_locations |= sortType
 
 		updatedir()
 		updatename()
