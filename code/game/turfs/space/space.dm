@@ -26,8 +26,8 @@ var/image/exterior_light_overlay
 	update_starlight()
 	..()
 
-/turf/space/initialize()
-	..()
+/turf/space/Initialize()
+	. = ..()
 	if(!HasBelow(z))
 		return
 	var/turf/below = GetBelow(src)

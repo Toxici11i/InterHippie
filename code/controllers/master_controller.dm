@@ -83,6 +83,7 @@ datum/controller/game_controller/proc/setup_objects()
 	report_progress("Initializing areas")
 	for(var/area/area)
 		area.initialize()
+	while(!SSatoms || SSatoms.initialized != INITIALIZATION_INNEW_REGULAR)
 		CHECK_SLEEP_MASTER
 
 	if(using_map.use_overmap)
