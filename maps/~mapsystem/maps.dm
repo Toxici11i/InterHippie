@@ -1,4 +1,5 @@
-GLOBAL_DATUM_INIT(using_map, /datum/map, new using_map_DATUM)
+
+var/datum/map/using_map = new USING_MAP_DATUM
 var/list/all_maps = list()
 
 var/const/MAP_HAS_BRANCH = 1	//Branch system for occupations, togglable
@@ -7,8 +8,8 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 /hook/startup/proc/initialise_map_list()
 	for(var/type in typesof(/datum/map) - /datum/map)
 		var/datum/map/M
-		if(type == GLOB.using_map.type)
-			M = GLOB.using_map
+		if(type == using_map.type)
+			M = using_map
 			M.setup_map()
 		else
 			M = new type
@@ -109,7 +110,6 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	if(lobby_music_tracks.len)
 		lobby_music_type = pick(lobby_music_tracks)
 	lobby_music = new lobby_music_type()
-	world.update_status()
 
 /datum/map/proc/send_welcome()
 	return
@@ -135,7 +135,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 // By default transition randomly to another zlevel
 /datum/map/proc/get_transit_zlevel(var/current_z_level)
-	var/list/candidates = GLOB.using_map.accessible_z_levels.Copy()
+	var/list/candidates = using_map.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))
 
 	if(!candidates.len)

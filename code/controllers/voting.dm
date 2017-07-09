@@ -247,7 +247,7 @@ datum/controller/vote
 										spawn(10)
 											autotransfer()
 				if("map")
-					var/datum/map/M = all_maps[.[1]]
+					var/datum/map/M = GLOB.all_maps[.[1]]
 					fdel("use_map")
 					text2file(M.path, "use_map")
 
@@ -354,7 +354,7 @@ datum/controller/vote
 				if("map")
 					if(!config.allow_map_switching)
 						return 0
-					for(var/name in all_maps)
+					for(var/name in GLOB.all_maps)
 						choices.Add(name)
 				if("custom")
 					question = cp1251_to_utf8(rhtml_encode(input(usr,"What is the vote for?") as text|null))

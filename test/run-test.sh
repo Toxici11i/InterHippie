@@ -240,6 +240,9 @@ function run_byond_tests {
     fi
     run_test_ci "check globals build" "python tools/GenerateGlobalVarAccess/gen_globals.py InterBay.dme code/_helpers/global_access.dm"
     run_test "build map unit tests" "scripts/dm.sh -DUNIT_TEST -M$MAP_PATH InterBay.dme"
+    run_test_ci "check globals build" "python tools/GenerateGlobalVarAccess/gen_globals.py baystation12.dme code/_helpers/global_access.dm"
+    run_test "check globals unchanged" "md5sum -c - <<< '456ffa108f98f41b4687f8398f405103 *code/_helpers/global_access.dm'"
+    run_test "build map unit tests" "scripts/dm.sh -DUNIT_TEST -M$MAP_PATH baystation12.dme"
     run_test "check no warnings in build" "grep ', 0 warnings' build_log.txt"
     run_test "run unit tests" "DreamDaemon InterBay.dmb -invisible -trusted -core 2>&1 | tee log.txt"
     run_test "check tests passed" "grep 'All Unit Tests Passed' log.txt"
