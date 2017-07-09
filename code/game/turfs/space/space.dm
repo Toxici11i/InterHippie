@@ -40,10 +40,10 @@ var/image/exterior_light_overlay
 		return
 
 	// We alter area type before the turf to ensure the turf-change-event-propagation is handled as expected.
-	if(using_map.base_floor_area)
-		var/area/new_area = locate(using_map.base_floor_area) || new using_map.base_floor_area
+	if(GLOB.using_map.base_floor_area)
+		var/area/new_area = locate(GLOB.using_map.base_floor_area) || new GLOB.using_map.base_floor_area
 		new_area.contents.Add(src)
-	ChangeTurf(using_map.base_floor_type)
+	ChangeTurf(GLOB.using_map.base_floor_type)
 
 // override for space turfs, since they should never hide anything
 /turf/space/levelupdate()

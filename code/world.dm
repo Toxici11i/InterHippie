@@ -81,6 +81,9 @@
 
 #define RECOMMENDED_VERSION 511
 /world/New()
+	//set window title
+	name = "[server_name] - [GLOB.using_map.full_name]"
+
 	//logs
 	SetupLogs()
 	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
@@ -113,8 +116,6 @@
 	load_mods()
 	//end-emergency fix
 
-	src.update_status()
-
 	. = ..()
 
 #ifdef UNIT_TEST
@@ -129,8 +130,8 @@
 	populate_material_list()
 
 	if(config.generate_map)
-		if(using_map.perform_map_generation())
-			using_map.refresh_mining_turfs()
+		if(GLOB.using_map.perform_map_generation())
+			GLOB.using_map.refresh_mining_turfs()
 
 	// Create autolathe recipes, as above.
 	populate_lathe_recipes()
@@ -194,7 +195,7 @@ var/world_topic_spam_protect_time = world.timeofday
 		s["players"] = 0
 		s["stationtime"] = stationtime2text()
 		s["roundduration"] = roundduration2text()
-		s["map"] = using_map.full_name
+		s["map"] = GLOB.using_map.full_name
 
 		if(input["status"] == "2")
 			var/list/players = list()
@@ -659,6 +660,8 @@ var/world_topic_spam_protect_time = world.timeofday
 		GLOB.log_directory += "[game_id]"
 	else
 		GLOB.log_directory += "[replacetext(time_stamp(), ":", ".")]"
+
+	GLOB.world_runtime_log << "\n\nStarting up round ID [game_id]. [time_stamp()]\n---------------------"
 
 #define FAILED_DB_CONNECTION_CUTOFF 5
 var/failed_db_connections = 0

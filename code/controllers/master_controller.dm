@@ -86,9 +86,9 @@ datum/controller/game_controller/proc/setup_objects()
 	while(!SSatoms || SSatoms.initialized != INITIALIZATION_INNEW_REGULAR)
 		CHECK_SLEEP_MASTER
 
-	if(using_map.use_overmap)
+	if(GLOB.using_map.use_overmap)
 		report_progress("Initializing overmap events")
-		overmap_event_handler.create_events(using_map.overmap_z, using_map.overmap_size, using_map.overmap_event_areas)
+		overmap_event_handler.create_events(GLOB.using_map.overmap_z, GLOB.using_map.overmap_size, GLOB.using_map.overmap_event_areas)
 		CHECK_SLEEP_MASTER
 
 	report_progress("Initializing pipe networks")
@@ -113,6 +113,4 @@ datum/controller/game_controller/proc/setup_objects()
 
 /proc/report_progress(var/progress_message)
 	admin_notice("<span class='boldannounce'>[progress_message]</span>", R_DEBUG)
-#ifdef UNIT_TEST
-	to_world_log("\[[time2text(world.realtime, "hh:mm:ss")]\] [progress_message]")
-#endif
+	to_world_log(progress_message)

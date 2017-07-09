@@ -186,8 +186,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 	src << S
 
 /client/proc/playtitlemusic()
-	if(is_preference_enabled(/datum/client_preference/play_lobby_music))
-		using_map.lobby_music.play_to(src)
+		GLOB.using_map.lobby_music.play_to(src)
 	if(is_preference_enabled(/datum/client_preference/play_lobby_music))
 		to_chat(src, "<i>Now playing:</i> <b>[using_map.lobby_music]</b>.")
 

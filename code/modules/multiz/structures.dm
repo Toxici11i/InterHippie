@@ -18,6 +18,7 @@
 	var/const/climb_time = 2 SECONDS
 
 /obj/structure/ladder/Initialize()
+	. = ..()
 	// the upper will connect to the lower
 	if(allowed_directions & DOWN) //we only want to do the top one, as it will initialize the ones before it.
 		for(var/obj/structure/ladder/L in GetBelow(src))
@@ -26,7 +27,6 @@
 				L.target_up = src
 				return
 	update_icon()
-	. = ..()
 
 /obj/structure/ladder/Destroy()
 	if(target_down)
