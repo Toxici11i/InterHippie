@@ -9,6 +9,20 @@
 		return 0
 	return 1
 
+
+//Reveals a random heretic
+/mob/living/proc/reveal_heretics(mob/living/M)
+	to_world("in reveal heretics [M]")
+	var/name = ""
+	if (religion_is_legal())  //Non-heretics will say a random name
+		name = pick(GLOB.human_mob_list)
+	else
+		name = pick(all_religions[ILLEGAL_RELIGION].followers)  //Wow the datums saves us an entire for loop
+	emote("scream",1)
+	agony_scream()
+	say(NewStutter("[name] is one of them!"))
+
+
 //PRAYER
 var/accepted_prayer //The prayer that all those who are not heretics will have.
 

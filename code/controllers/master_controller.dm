@@ -65,7 +65,7 @@ datum/controller/game_controller/proc/setup_objects()
 	populate_spawn_points()
 
 	initialization_stage |= INITIALIZATION_HAS_BEGUN
-
+	/* Oh god oh fuck
 	report_progress("Initializing turbolifts")
 	for(var/thing in turbolifts)
 		var/obj/turbolift_map_holder/lift = thing
@@ -86,8 +86,11 @@ datum/controller/game_controller/proc/setup_objects()
 		area.initialize()
 	while(!SSatoms || SSatoms.initialized != INITIALIZATION_INNEW_REGULAR)
 		CHECK_SLEEP_MASTER
-
+	*/
 	if(GLOB.using_map.use_overmap)
+		report_progress("Initializing overmap events")
+		overmap_event_handler.create_events(GLOB.using_map.overmap_z, GLOB.using_map.overmap_size, GLOB.using_map.overmap_event_areas)
+		CHECK_SLEEP_MASTER
 		report_progress("Initializing overmap events")
 		overmap_event_handler.create_events(GLOB.using_map.overmap_z, GLOB.using_map.overmap_size, GLOB.using_map.overmap_event_areas)
 		CHECK_SLEEP_MASTER
@@ -96,7 +99,6 @@ datum/controller/game_controller/proc/setup_objects()
 	for(var/obj/machinery/atmospherics/A in GLOB.machines)
 		A.atmos_init()
 		CHECK_SLEEP_MASTER
-
 	for(var/obj/machinery/atmospherics/unary/U in GLOB.machines)
 		if(istype(U, /obj/machinery/atmospherics/unary/vent_pump))
 			var/obj/machinery/atmospherics/unary/vent_pump/T = U

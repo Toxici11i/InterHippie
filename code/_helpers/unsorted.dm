@@ -1133,6 +1133,9 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 /proc/crash_with(msg)
 	CRASH(msg)
 
+/proc/pass()
+	return
+
 /proc/step_towards_3d(var/atom/movable/Ref, var/atom/movable/Trg)
 	if (!Ref || !Trg)
 		return 0
@@ -1157,7 +1160,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	if (Ref.loc != T)
 		return 0
 
+/proc/pass()
 	return 1
 
-/proc/pass()
-	return
+	return 1

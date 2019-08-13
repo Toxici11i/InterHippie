@@ -70,7 +70,7 @@ GLOBAL_DATUM(error_cache, /datum/error_viewer/error_cache)
 
 	if (linear)
 		back_to_param += ";viewruntime_linear=1"
-	return "<A HREF='?src=\ref[src];viewruntime=\ref[src][back_to_param]'>[rhtml_encode(linktext)]</A>"
+	return "<a href='?_src_=holder;viewruntime=\ref[src][back_to_param]'>[linktext]</a>"
 
 /datum/error_viewer/error_cache
 	var/list/errors = list()
@@ -167,40 +167,27 @@ GLOBAL_DATUM(error_cache, /datum/error_viewer/error_cache)
 	if (istype(desclines))
 		for (var/line in desclines)
 			// There's probably a better way to do this than non-breaking spaces...
-			desc += "&nbsp;&nbsp;" + rhtml_encode(line) + "<br>"
-			info += "\n  " + line
-	if(istype(e_src))
-		srcRef = "\ref[e_src]"
-		srcType = e_src.type
-		srcLoc = get_turf(e_src)
-	if(usr)
-		usrRef = "\ref[usr]"
-		usrLoc = get_turf(usr)
+			desc += "<span class='runtime_line'>[html_encode(line)]</span><br>"
 
-/datum/ErrorViewer/ErrorEntry/showTo(var/user, var/datum/ErrorViewer/back_to, var/linear)
-	if(!istype(back_to))
+	if (usr)
+		usr_ref = "\ref[usr]"
+		usr_loc = get_turf(usr)
+
+/datum/error_viewer/error_entry/show_to(user, datum/error_viewer/back_to, linear)
+	if (!istype(back_to))
 		back_to = error_source
-	var/html = buildHeader(back_to, linear)
-	html += "<div class='runtime'>[rhtml_encode(name)]<br>[desc]</div>"
-	if(srcRef)
-		html += "<br>src: <a href='?_src_=vars;Vars=[srcRef]'>VV</a>"
-		if(ispath(srcType, /mob))
-			html += " <a href='?_src_=holder;adminplayeropts=[srcRef]'>PP</a>"
-			html += " <a href='?_src_=holder;adminplayerobservefollow=[srcRef]'>Follow</a>"
-		if(istype(srcLoc))
-			html += "<br>src.loc: <a href='?_src_=vars;Vars=\ref[srcLoc]'>VV</a>"
-			html += " <a href='?_src_=holder;adminplayerobservecoodjump=1;X=[srcLoc.x];Y=[srcLoc.y];Z=[srcLoc.z]'>JMP</a>"
-	if(usrRef)
-		html += "<br>usr: <a href='?_src_=vars;Vars=[usrRef]'>VV</a>"
-		html += " <a href='?_src_=holder;adminplayeropts=[usrRef]'>PP</a>"
-		html += " <a href='?_src_=holder;adminplayerobservefollow=[usrRef]'>Follow</a>"
-		if(istype(usrLoc))
-			html += "<br>usr.loc: <a href='?_src_=vars;Vars=\ref[usrLoc]'>VV</a>"
-			html += " <a href='?_src_=holder;adminplayerobservecoodjump=1;X=[usrLoc.x];Y=[usrLoc.y];Z=[usrLoc.z]'>JMP</a>"
-	browseTo(user, html)
 
-/datum/ErrorViewer/ErrorEntry/makeLink(var/linktext, var/datum/ErrorViewer/back_to, var/linear)
-	if(isSkipCount)
-		return rhtml_encode(name)
-	else
-		return ..()
+	var/html = build_header(back_to, linear)
+	html += "[name]<div class='runtime'>[desc]</div>"
+	if (usr_ref)
+		html += "<br><b>usr</b>: <a href='?_src_=vars;Vars=[usr_ref]'>VV</a>"
+		html += " <a href='?_src_=holder;adminplayeropts=[usr_ref]'>PP</a>"
+		html += " <a href='?_src_=holder;adminplayerobservefollow=[usr_ref]'>Follow</a>"
+		if (istype(usr_loc))
+			html += "<br><b>usr.loc</b>: <a href='?_src_=vars;Vars=\ref[usr_loc]'>VV</a>"
+			html += " <a href='?_src_=holder;adminplayerobservecoodjump=1;X=[usr_loc.x];Y=[usr_loc.y];Z=[usr_loc.z]'>JMP</a>"
+
+	browse_to(user, html)
+
+/datum/error_viewer/error_entry/make_link(linktext, datum/error_viewer/back_to, linear)
+	return is_skip_count ? name : ..()

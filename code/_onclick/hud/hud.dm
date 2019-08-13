@@ -43,6 +43,7 @@ GLOBAL_DATUM_INIT(global_hud, /datum/global_hud, new())
 	var/obj/screen/lingchemdisplay
 	var/obj/screen/r_hand_hud_object
 	var/obj/screen/l_hand_hud_object
+	var/obj/screen/swaphands_hud_object
 	var/obj/screen/action_intent
 	var/obj/screen/move_intent
 

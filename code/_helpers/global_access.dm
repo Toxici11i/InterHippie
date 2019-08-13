@@ -129,20 +129,12 @@
 			return global.account_hack_attempted;
 		if("acting_rank_prefixes")
 			return global.acting_rank_prefixes;
-		if("active_diseases")
-			return global.active_diseases;
 		if("actor")
 			return global.actor;
 		if("additional_antag_types")
 			return global.additional_antag_types;
-		if("adjectives")
-			return global.adjectives;
 		if("admin_datums")
 			return global.admin_datums;
-		if("admin_departments")
-			return global.admin_departments;
-		if("admin_log")
-			return global.admin_log;
 		if("admin_pm_repository")
 			return global.admin_pm_repository;
 		if("admin_ranks")
@@ -187,8 +179,6 @@
 			return global.ai_icons;
 		if("ai_list")
 			return global.ai_list;
-		if("ai_names")
-			return global.ai_names;
 		if("ai_status_emotions")
 			return global.ai_status_emotions;
 		if("ai_verbs_default")
@@ -2084,12 +2074,6 @@
 			global.priority_air_alarms=newval;
 		if("priority_announcement")
 			global.priority_announcement=newval;
-		if("prisonsecuritywarp")
-			global.prisonsecuritywarp=newval;
-		if("prisonwarp")
-			global.prisonwarp=newval;
-		if("prisonwarped")
-			global.prisonwarped=newval;
 		if("priv_all_access")
 			global.priv_all_access=newval;
 		if("priv_all_access_datums")

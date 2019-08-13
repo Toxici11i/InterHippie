@@ -101,3 +101,11 @@
 		s.start()
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return
+
+/obj/machinery/old_god_shrine/proc/near_camera()
+	if (!isturf(loc))
+		return 0
+	else if(!cameranet.is_visible(src))
+		return 0
+	GLOB.global_headset.autosay("Heretical Shrine detected in [get_area(src)]","Verina","Inquisition")
+	return 1

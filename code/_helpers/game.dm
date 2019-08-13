@@ -266,7 +266,8 @@
 			mobs |= M
 		else if(get_turf(M) in hearturfs)
 			mobs |= M
-
+			//Things in thier hands should hear too
+			GLOB.listening_objects += M.get_active_hand()
 	for(var/obj/O in GLOB.listening_objects)
 		if(get_turf(O) in hearturfs)
 			objs |= O

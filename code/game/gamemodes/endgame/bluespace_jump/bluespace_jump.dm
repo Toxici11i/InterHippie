@@ -1,6 +1,7 @@
 /datum/universal_state/bluespace_jump
 	name = "Bluespace Jump"
 	var/list/bluespaced = list()
+	var/list/bluegoasts = list()
 	var/list/affected_levels
 	var/list/old_accessible_z_levels
 
@@ -18,7 +19,6 @@
 					M.forceMove(T)
 			else
 				apply_bluespaced(M)
-
 	for(var/mob/goast in GLOB.ghost_mob_list)
 		goast.mouse_opacity = 0	//can't let you click that Dave
 		goast.invisibility = SEE_INVISIBLE_LIVING
@@ -47,21 +47,13 @@
 		return FALSE
 	return TRUE
 
-/datum/universal_state/bluespace_jump/proc/check_density(var/mob/living/M)
-	var/turf/T = get_turf(M)
-	if(T && T.density)
-		return T
-	var/obj/machinery/door/airlock/A = locate() in T
-	if(A && A.density && M.blocks_airlock())
-		return A
-	return null
-
 /datum/universal_state/bluespace_jump/proc/apply_bluespaced(var/mob/living/M)
+	bluespaced += M
 	if(M.client)
 		to_chat(M,"<span class='notice'>You feel oddly light, and somewhat disoriented as everything around you shimmers and warps ever so slightly.</span>")
 		M.overlay_fullscreen("bluespace", /obj/screen/fullscreen/bluespace_overlay)
-	M.incorporeal_move = 1
-	M.confused = INFINITY //needed since normally confused ticks down own it's own
+	M.confused = 20
+	bluegoasts += new/obj/effect/bluegoast/(get_turf(M),M)
 
 /datum/universal_state/bluespace_jump/proc/clear_bluespaced(var/mob/living/M)
 	if(M.client)
@@ -120,15 +112,24 @@
 /obj/effect/bluegoast/examine(user)
 	return daddy.examine(user)
 
-	var/atom/dense = check_density(M)
-	if(dense)
-		to_chat(M,"<span class='danger'>\The [dense] suddenly appears inside you!</span>")
-		M.gib()
+/obj/effect/bluegoast/proc/blueswitch()
+	var/mob/living/carbon/human/H = new(get_turf(src), daddy.species.name)
+	H.real_name = daddy.real_name
+	H.dna = daddy.dna.Clone()
+	H.sync_organ_dna()
+	H.flavor_text = daddy.flavor_text
+	H.UpdateAppearance()
+	var/datum/job/job = job_master.GetJob(daddy.job)
+	if(job)
+		job.equip(H)
+	daddy.dust()
+	qdel(src)
 
 /obj/screen/fullscreen/bluespace_overlay
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "mfoam"
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	color = "#FF9900"
+	alpha = 100
 	blend_mode = BLEND_SUBTRACT
 	layer = FULLSCREEN_LAYER

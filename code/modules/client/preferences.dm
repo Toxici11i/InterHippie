@@ -89,13 +89,10 @@ datum/preferences
 	var/med_record = ""
 	var/sec_record = ""
 	var/gen_record = ""
-	var/exploit_record = ""
 	var/memory = ""
 	var/disabilities = 0
 
 	var/nanotrasen_relation = "Neutral"
-
-	var/uplinklocation = "PDA"
 
 	// OOC Metadata:
 	var/metadata = ""

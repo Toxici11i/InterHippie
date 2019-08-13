@@ -106,6 +106,7 @@
 			res.overlays |= hair_s
 	return res
 
+
 /obj/item/stack/teeth
     name = "teeth"
     singular_name = "tooth"

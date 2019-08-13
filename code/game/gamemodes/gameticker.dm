@@ -146,7 +146,7 @@ var/global/datum/controller/gameticker/ticker
 	GLOB.data_core.manifest()
 
 	callHook("roundstart")
-
+	//Master.RoundStart()
 	shuttle_controller.initialize_shuttles()
 
 	spawn(0)//Forking here so we dont have to wait for this to finish
@@ -498,14 +498,14 @@ var/global/datum/controller/gameticker/ticker
 
 	//ROUND END STATS
 	var/round_end_stats = "<b>ROUND END STATS:</b>\n"
-	round_end_stats += "Number of times the floor was shit on: <font color='red'><B>[shit_left]</B></font>.\n"
-	round_end_stats += "Number of times the floor was pissed on: <font color='red'><B>[piss_left]</B></font>.\n"
+	round_end_stats += "Number of times the floor was shit on: <font color='red'><B>[GLOB.shit_left]</B></font>.\n"
+	round_end_stats += "Number of times the floor was pissed on: <font color='red'><B>[GLOB.piss_left]</B></font>.\n"
 	round_end_stats += "Number of orgasms: <font color='red'><B>[times_came]</B></font>.\n"
-	round_end_stats += "Number of deaths in space: <font color='red'><B>[deaths_in_space]</B></font>.\n"
-	round_end_stats += "Total teeth lost: <font color='red'><B>[teeth_lost]</B></font>.\n"
-	round_end_stats += "Total bloodshed: <font color='red'><B>[total_deaths]</B></font>.\n"
+	round_end_stats += "Number of deaths in space: <font color='red'><B>[GLOB.deaths_in_space]</B></font>.\n"
+	round_end_stats += "Total teeth lost: <font color='red'><B>[GLOB.teeth_lost]</B></font>.\n"
+	round_end_stats += "Total bloodshed: <font color='red'><B>[GLOB.total_deaths]</B></font>.\n"
 	round_end_stats += "<font color='red'>The [ILLEGAL_RELIGION] worshippers were:</font>\n"
-	for(var/mob/living/carbon/human/H in human_mob_list)
+	for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 		if(H.religion == ILLEGAL_RELIGION)
 			round_end_stats += "<font color='red'><b>[H.name]</b></font>\n"
 

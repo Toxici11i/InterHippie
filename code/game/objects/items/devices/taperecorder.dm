@@ -23,7 +23,6 @@
 	..()
 	if(ispath(mytape))
 		mytape = new mytape(src)
-
 	GLOB.listening_objects += src
 	update_icon()
 

@@ -27,6 +27,7 @@ SUBSYSTEM_DEF(garbage)
 	var/list/noqdelhint = list() // list of all types that do not return a QDEL_HINT
 	// all types that did not respect qdel(A, force=TRUE) and returned one
 	// of the immortality qdel hints
+	var/harddel_halt = FALSE        // If true, will avoid harddeleting from the final queue; will still respect HARDDEL_NOW.
 	var/list/noforcerespect = list()
 
 #ifdef TESTING
@@ -178,6 +179,32 @@ SUBSYSTEM_DEF(garbage)
 		queue |= SSgarbage.queue
 	if (istype(SSgarbage.tobequeued))
 		tobequeued |= SSgarbage.tobequeued
+
+/datum/controller/subsystem/garbage/proc/toggle_harddel_halt(new_state = FALSE)
+	if(new_state == harddel_halt)
+		return
+	harddel_halt = new_state
+
+/datum/qdel_item
+	var/name = ""
+	var/qdels = 0			//Total number of times it's passed thru qdel.
+	var/destroy_time = 0	//Total amount of milliseconds spent processing this type's Destroy()
+	var/failures = 0		//Times it was queued for soft deletion but failed to soft delete.
+	var/hard_deletes = 0 	//Different from failures because it also includes QDEL_HINT_HARDDEL deletions
+	var/hard_delete_time = 0//Total amount of milliseconds spent hard deleting this type.
+	var/no_respect_force = 0//Number of times it's not respected force=TRUE
+	var/no_hint = 0			//Number of times it's not even bother to give a qdel hint
+	var/slept_destroy = 0	//Number of times it's slept in its destroy
+
+/datum/qdel_item/New(mytype)
+	name = "[mytype]"
+
+#ifdef TESTING
+/proc/qdel_and_find_ref_if_fail(datum/D, force = FALSE)
+	SSgarbage.reference_find_on_fail["\ref[D]"] = TRUE
+	qdel(D, force)
+#endif
+
 
 // Should be treated as a replacement for the 'del' keyword.
 // Datums passed to this will be given a chance to clean up references to allow the GC to collect them.
