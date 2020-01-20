@@ -32,16 +32,15 @@
 	//#include "structures/wall_icons.dm"
 	#include "structures/walls.dm"
 	#include "structures/machinery.dm"
-	#include "structures/railing.dm"
 	#include "structures/shelf.dm" //Abruti
 	#include "dreyfus_gamemodes.dm"
 
-	#include "dreyfus-01.dmm" // - Abandonné - IA(?), traitement des déchets
-	#include "dreyfus-02.dmm" // - Ingénierie - Moteur. Lifesupport.
+	#include "dreyfus-01.dmm" // - AbandonnÃ© - IA(?), traitement des dÃ©chets
+	#include "dreyfus-02.dmm" // - IngÃ©nierie - Moteur. Lifesupport.
 	#include "dreyfus-03.dmm" // - Cargo - Ouvrier, Production et logistique
-	#include "dreyfus-04.dmm" // - Résidentiel - Clinique, bar et good vibes
+	#include "dreyfus-04.dmm" // - RÃ©sidentiel - Clinique, bar et good vibes
 	#include "dreyfus-05.dmm" // - Bureaux - Personnel administratif et direction
-	#include "dreyfus-06.dmm" // - Coupole - Jardin, réception des invités
+	#include "dreyfus-06.dmm" // - Coupole - Jardin, rÃ©ception des invitÃ©s
 	#include "dreyfus-07.dmm"
 	#include "dreyfus-08.dmm"
 
