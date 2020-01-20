@@ -62,7 +62,7 @@
 		H.add_stats(rand(6,9), rand(9,11), rand(10,12))
 
 /datum/job/employe
-	title = "Employe Administratif"
+	title = "Employee Administrator"
 	supervisors = "the Overseer"
 	minimal_player_age = 21
 	economic_modifier = 8
@@ -106,7 +106,7 @@
 		H.add_skills(rand(25, 50), rand(25,50), rand(65, 75))
 
 /datum/job/scientist
-	title = "Tenchotrainee"
+	title = "Technotrainee"
 	supervisors = "Technomancer"
 	minimal_player_age = 19
 	economic_modifier = 8
