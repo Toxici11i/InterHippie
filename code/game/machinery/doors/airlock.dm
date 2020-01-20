@@ -209,6 +209,13 @@
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
 
+/obj/machinery/door/airlock/security_hatch
+	name = "Maintenance Hatch"
+	icon = 'icons/obj/doors/Doorhatcharmoury.dmi'
+	explosion_resistance = 20
+	opacity = 1
+	assembly_type = /obj/structure/door_assembly/door_assembly_shatch
+
 /obj/machinery/door/airlock/maintenance_hatch
 	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/Doorhatchmaint2.dmi'
