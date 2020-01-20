@@ -227,6 +227,10 @@ macro "borghotkeymode"
 		name = "F2"
 		command = "ooc"
 		is-disabled = false
+	elem
+		name = "O"
+		command = "ooc"
+		is-disabled = false
 	elem 
 		name = "F2+REP"
 		command = ".screenshot auto"
