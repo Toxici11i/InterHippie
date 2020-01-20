@@ -125,6 +125,11 @@
 	locked = 1
 	opacity = 0
 
+/obj/machinery/door/airlock/weapon
+	name = "Airlock"
+	icon = 'icons/obj/doors/Doorweap.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_weap
+
 /obj/machinery/door/airlock/sol
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorsol.dmi'
