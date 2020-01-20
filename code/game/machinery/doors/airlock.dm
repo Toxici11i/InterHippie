@@ -76,36 +76,6 @@
 	icon = 'icons/obj/doors/Doorcom.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 
-/obj/machinery/door/airlock/black
-	name = "Airlock"
-	icon = 'icons/obj/doors/doorblack.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_black
-
-/obj/machinery/door/airlock/hydroponics
-	name = "Airlock"
-	icon = 'icons/obj/doors/doorhydro.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_hyd
-
-/obj/machinery/door/airlock/chemistry
-	name = "Airlock"
-	icon = 'icons/obj/doors/doorchem.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_chem
-
-/obj/machinery/door/airlock/arbiter
-	name = "Airlock"
-	icon = 'icons/obj/doors/Doorcomalt.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_arbiter
-
-/obj/machinery/door/airlock/cone
-	name = "Airlock"
-	icon = 'icons/obj/doors/Doormetalone.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_cone
-
-/obj/machinery/door/airlock/weng
-	name = "Airlock"
-	icon = 'icons/obj/doors/Doorneweng.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_weng
-
 /obj/machinery/door/airlock/security
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorsec.dmi'
@@ -154,11 +124,6 @@
 	density = 0
 	locked = 1
 	opacity = 0
-
-/obj/machinery/door/airlock/weapon
-	name = "Airlock"
-	icon = 'icons/obj/doors/Doorweap.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_weap
 
 /obj/machinery/door/airlock/sol
 	name = "Airlock"
@@ -237,16 +202,6 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
 
-/obj/machinery/door/airlock/glass_black
-	name = "Maintenance Hatch"
-	icon = 'icons/obj/doors/doorblackglass.dmi'
-	hitsound = 'sound/effects/Glasshit.ogg'
-	maxhealth = 300
-	explosion_resistance = 5
-	opacity = 0
-	assembly_type = /obj/structure/door_assembly/door_assembly_black
-	glass = 1
-
 /obj/machinery/door/airlock/glass_hydroponics
 	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/doorhydroglass.dmi'
@@ -256,47 +211,6 @@
 	opacity = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_hyd
 	glass = 1
-
-/obj/machinery/door/airlock/glass_chemistry
-	name = "Maintenance Hatch"
-	icon = 'icons/obj/doors/doorchemglass.dmi'
-	hitsound = 'sound/effects/Glasshit.ogg'
-	maxhealth = 300
-	explosion_resistance = 5
-	opacity = 0
-	assembly_type = /obj/structure/door_assembly/door_assembly_chem
-	glass = 1
-
-/obj/machinery/door/airlock/glass_arbiter
-	name = "Maintenance Hatch"
-	icon = 'icons/obj/doors/Doorcomaltglass.dmi'
-	hitsound = 'sound/effects/Glasshit.ogg'
-	maxhealth = 300
-	explosion_resistance = 5
-	opacity = 0
-	assembly_type = /obj/structure/door_assembly/door_assembly_arbiter
-	glass = 1
-
-/obj/machinery/door/airlock/glass_cone
-	name = "Maintenance Hatch"
-	icon = 'icons/obj/doors/Doorglassone.dmi'
-	hitsound = 'sound/effects/Glasshit.ogg'
-	maxhealth = 300
-	explosion_resistance = 5
-	opacity = 0
-	assembly_type = /obj/structure/door_assembly/door_assembly_cone
-	glass = 1
-
-/obj/machinery/door/airlock/glass_weng
-	name = "Maintenance Hatch"
-	icon = 'icons/obj/doors/Doornewengglass.dmi'
-	hitsound = 'sound/effects/Glasshit.ogg'
-	maxhealth = 300
-	explosion_resistance = 5
-	opacity = 0
-	assembly_type = /obj/structure/door_assembly/door_assembly_weng
-	glass = 1
-
 
 /obj/machinery/door/airlock/glass_hydroponics
 	name = "Maintenance Hatch"
@@ -330,16 +244,6 @@
 	density = 0
 	locked = 1
 	opacity = 0
-
-/obj/machinery/door/airlock/glass_weap
-	name = "Maintenance Hatch"
-	icon = 'icons/obj/doors/Doorweapglass.dmi'
-	hitsound = 'sound/effects/Glasshit.ogg'
-	maxhealth = 300
-	explosion_resistance = 5
-	opacity = 0
-	assembly_type = /obj/structure/door_assembly/door_assembly_weap
-	glass = 1
 
 /obj/machinery/door/airlock/glass_engineering
 	name = "Maintenance Hatch"
