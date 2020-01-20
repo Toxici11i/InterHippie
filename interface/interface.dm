@@ -62,6 +62,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \te = equip
 \tr = throw
 \tt = say
+\to = ooc
 \t5 = emote
 \tx = swap-hand
 \tz = activate held object (or y)
@@ -116,6 +117,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tw = up
 \tq = unequip active module
 \tt = say
+\to = ooc
 \tx = cycle active modules
 \tz = activate held object (or y)
 \tf = cycle-intents-left
