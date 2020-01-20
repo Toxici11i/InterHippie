@@ -76,6 +76,36 @@
 	icon = 'icons/obj/doors/Doorcom.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 
+/obj/machinery/door/airlock/black
+	name = "Airlock"
+	icon = 'icons/obj/doors/doorblack.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_black
+
+/obj/machinery/door/airlock/hydroponics
+	name = "Airlock"
+	icon = 'icons/obj/doors/doorhydro.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_hyd
+
+/obj/machinery/door/airlock/chemistry
+	name = "Airlock"
+	icon = 'icons/obj/doors/doorchem.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_chem
+
+/obj/machinery/door/airlock/arbiter
+	name = "Airlock"
+	icon = 'icons/obj/doors/Doorcomalt.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_arbiter
+
+/obj/machinery/door/airlock/cone
+	name = "Airlock"
+	icon = 'icons/obj/doors/Doormetalone.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_cone
+
+/obj/machinery/door/airlock/weng
+	name = "Airlock"
+	icon = 'icons/obj/doors/Doorneweng.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_weng
+
 /obj/machinery/door/airlock/security
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorsec.dmi'
