@@ -23,6 +23,24 @@
 	glass_type = "/glass_command"
 	airlock_type = "/command"
 
+/obj/structure/door_assembly/door_assembly_black
+	base_icon_state = "black"
+	base_name = "Black Airlock"
+	glass_type = "/glass_black"
+	airlock_type = "/black"
+
+/obj/structure/door_assembly/door_assembly_chem
+	base_icon_state = "chem"
+	base_name = "Chemistry Airlock"
+	glass_type = "/glass_chemistry"
+	airlock_type = "/chemistry"
+
+/obj/structure/door_assembly/door_assembly_arbiter
+	base_icon_state = "coma"
+	base_name = "Arbiter Airlock"
+	glass_type = "/glass_arbiter"
+	airlock_type = "/arbiter"
+
 /obj/structure/door_assembly/door_assembly_sec
 	base_icon_state = "sec"
 	base_name = "Security Airlock"
