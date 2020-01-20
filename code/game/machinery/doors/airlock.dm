@@ -233,6 +233,16 @@
 	locked = 1
 	opacity = 0
 
+/obj/machinery/door/airlock/glass_weap
+	name = "Maintenance Hatch"
+	icon = 'icons/obj/doors/Doorweapglass.dmi'
+	hitsound = 'sound/effects/Glasshit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = 0
+	assembly_type = /obj/structure/door_assembly/door_assembly_weap
+	glass = 1
+
 /obj/machinery/door/airlock/glass_engineering
 	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/Doorengglass.dmi'
