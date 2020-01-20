@@ -237,6 +237,67 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
 
+/obj/machinery/door/airlock/glass_black
+	name = "Maintenance Hatch"
+	icon = 'icons/obj/doors/doorblackglass.dmi'
+	hitsound = 'sound/effects/Glasshit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = 0
+	assembly_type = /obj/structure/door_assembly/door_assembly_black
+	glass = 1
+
+/obj/machinery/door/airlock/glass_hydroponics
+	name = "Maintenance Hatch"
+	icon = 'icons/obj/doors/doorhydroglass.dmi'
+	hitsound = 'sound/effects/Glasshit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = 0
+	assembly_type = /obj/structure/door_assembly/door_assembly_hyd
+	glass = 1
+
+/obj/machinery/door/airlock/glass_chemistry
+	name = "Maintenance Hatch"
+	icon = 'icons/obj/doors/doorchemglass.dmi'
+	hitsound = 'sound/effects/Glasshit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = 0
+	assembly_type = /obj/structure/door_assembly/door_assembly_chem
+	glass = 1
+
+/obj/machinery/door/airlock/glass_arbiter
+	name = "Maintenance Hatch"
+	icon = 'icons/obj/doors/Doorcomaltglass.dmi'
+	hitsound = 'sound/effects/Glasshit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = 0
+	assembly_type = /obj/structure/door_assembly/door_assembly_arbiter
+	glass = 1
+
+/obj/machinery/door/airlock/glass_cone
+	name = "Maintenance Hatch"
+	icon = 'icons/obj/doors/Doorglassone.dmi'
+	hitsound = 'sound/effects/Glasshit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = 0
+	assembly_type = /obj/structure/door_assembly/door_assembly_cone
+	glass = 1
+
+/obj/machinery/door/airlock/glass_weng
+	name = "Maintenance Hatch"
+	icon = 'icons/obj/doors/Doornewengglass.dmi'
+	hitsound = 'sound/effects/Glasshit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = 0
+	assembly_type = /obj/structure/door_assembly/door_assembly_weng
+	glass = 1
+
+
 /obj/machinery/door/airlock/glass_hydroponics
 	name = "Maintenance Hatch"
 	icon = 'icons/obj/doors/doorhydroglass.dmi'
