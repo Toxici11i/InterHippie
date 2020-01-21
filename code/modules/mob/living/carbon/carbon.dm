@@ -219,6 +219,11 @@
 				"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")
 			else if(lying || src.sleeping)
 				src.sleeping = max(0,src.sleeping-5)
+				if(src.sleeping == 1)
+					src.adjustFireLoss(-0.5)
+					src.adjustToxLoss(-0.1)
+					src.adjustBruteLoss(-0.7)
+					src.adjustHalLoss(-0.4)
 				if(src.sleeping == 0)
 					src.resting = 0
 				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
