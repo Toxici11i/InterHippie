@@ -41,7 +41,7 @@
 	human_mob_list |= src
 	..()
 
-	add_teeth()
+	add_teeth(32)
 	bladder = rand(0,100)
 	bowels = rand(0, 100)
 
