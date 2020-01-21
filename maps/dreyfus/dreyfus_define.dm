@@ -3,7 +3,6 @@
 	name = "Dreyfus"
 	full_name = "SSNI Dreyfus"
 	path = "dreyfus"
-	flags = MAP_HAS_BRANCH
 
 	lobby_icon = 'maps/dreyfus/icons/lobby.dmi'
 
