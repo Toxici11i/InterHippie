@@ -3,6 +3,7 @@
 	name = "Utopia"
 	full_name = "Space Station Utopia"
 	path = "utopia"
+	flags = MAP_HAS_BRANCH
 
 	lobby_icon = 'maps/utopia/utopia_lobby.dmi'
 
