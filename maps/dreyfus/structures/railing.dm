@@ -260,6 +260,7 @@
 			update_icon()
 			return
 
+*/
 	// Handle harm intent grabbing/tabling.
 	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
@@ -288,6 +289,7 @@
 				visible_message("<span class='danger'>[G.assailant] throws [G.affecting] over \the [src]!</span>")
 			qdel(W)
 			return
+/*
 
 	else
 		playsound(loc, 'sound/effects/grillehit.ogg', 50, 1)
