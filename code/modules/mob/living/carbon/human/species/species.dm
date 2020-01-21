@@ -44,9 +44,9 @@
 	var/blood_volume = 560                    // Initial blood volume.
 	var/hunger_factor = DEFAULT_HUNGER_FACTOR // Multiplier for hunger.
 	var/taste_sensitivity = TASTE_NORMAL      // How sensitive the species is to minute tastes.
+	var/teeth_type = /obj/item/stack/teeth/generic	
 	var/genitals = 1						  //For erp
 	var/anus = 1							  //Also for erp
-	var/teeth_type = /obj/item/stack/teeth/generic
 
 	var/min_age = 17
 	var/max_age = 70
