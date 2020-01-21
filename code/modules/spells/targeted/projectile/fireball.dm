@@ -1,7 +1,8 @@
-/obj/effect/proc_holder/spell/aimed/fireball
+/spell/targeted/projectile/dumbfire/fireball
 	name = "Fireball"
-	desc = "This spell fires an explosive fireball at a target."
-	cooldown_min = 20 //10 deciseconds reduction per rank
+	desc = "This spell fires a fireball at a target and does not require wizard garb."
+	feedback = "FB"
+	proj_type = /obj/item/projectile/spell_projectile/fireball
 
 	school = "conjuration"
 	charge_max = 100
@@ -9,6 +10,7 @@
 	invocation = "Oni-Soma!"
 	invocation_type = SpI_SHOUT
 	range = 20
+	cooldown = 10
 
 	level_max = list(Sp_TOTAL = 5, Sp_SPEED = 0, Sp_POWER = 5)
 
@@ -26,29 +28,6 @@
 	var/ex_flash = 5
 
 	hud_state = "wiz_fireball"
-
-/obj/effect/proc_holder/spell/aimed/fireballClick()
-	var/mob/living/user = usr
-	if(!istype(user))
-		return
-	var/msg
-	if(!can_cast(user))
-		msg = "<span class='warning'>You can no longer cast [name]!</span>"
-		remove_ranged_ability(msg)
-		return
-	if(active)
-		msg = "<span class='notice'>[deactive_msg]</span>"
-		if(charge_type == "recharge")
-			var/refund_percent = current_amount/projectile_amount
-			charge_counter = charge_max * refund_percent
-			start_recharge()
-		remove_ranged_ability(msg)
-		on_deactivation(user)
-	else
-		msg = "<span class='notice'>[active_msg] <B>Left-click to shoot it at a target!</B></span>"
-		current_amount = projectile_amount
-		add_ranged_ability(user, msg, TRUE)
-		on_activation(user)
 
 /spell/targeted/projectile/dumbfire/fireball/prox_cast(var/list/targets, spell_holder)
 	for(var/mob/living/M in targets)
