@@ -17,6 +17,7 @@
 
 /obj/item/weapon/grab
 	name = "grab"
+	canremove = 0
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "reinforce"
 	flags = 0
@@ -152,7 +153,7 @@
 				affecting.Weaken(2)
 
 	if(state >= GRAB_NECK)
-		affecting.Stun(3)
+		affecting.Weaken(3)
 		if(isliving(affecting))
 			var/mob/living/L = affecting
 			L.adjustOxyLoss(1)
