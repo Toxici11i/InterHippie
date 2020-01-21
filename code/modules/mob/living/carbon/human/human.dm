@@ -24,8 +24,6 @@
 	if(species)
 		real_name = species.get_random_name(gender)
 		name = real_name
-		if(mind)
-			mind.name = real_name
 
 	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
 	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
@@ -40,8 +38,6 @@
 
 	human_mob_list |= src
 	..()
-
-	add_teeth()
 
 	potenzia = (prob(80) ? rand(9, 14) : pick(rand(5, 13), rand(15, 20)))//Interactions
 	if (prob(2)) // "30 cm penetrator"
