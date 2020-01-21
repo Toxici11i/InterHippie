@@ -7,10 +7,10 @@
 
 	var/list/hud_list[10]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
-	var/obj/item/weapon/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
+	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
+	mob_size = 9//Based on average weight of a human
 
-/mob/living/carbon/human/New(var/new_loc, var/new_species = null)
-
+/mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
 		dna = new /datum/dna(null)
 		// Species name is handled by set_species()
@@ -38,12 +38,10 @@
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[STATUS_HUD_OOC]  = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
 
-	human_mob_list |= src
-	..()
 
-	add_teeth(32)
-	bladder = rand(0,100)
-	bowels = rand(0, 100)
+	human_mob_list |= src
+
+	. = ..()
 
 	potenzia = (prob(80) ? rand(9, 14) : pick(rand(5, 13), rand(15, 20)))//Interactions
 	if (prob(2)) // "30 cm penetrator"
@@ -60,7 +58,13 @@
 	human_mob_list -= src
 	for(var/organ in organs)
 		qdel(organ)
-	return ..()
+	organs = null
+	internal_organs_by_name = null
+	internal_organs = null
+	organs_by_name = null
+	bad_internal_organs = null
+	bad_external_organs = null
+	return . = ..()
 
 /mob/living/carbon/human/Stat()
 	. = ..()
