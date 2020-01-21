@@ -1023,7 +1023,7 @@
 	if(shock_stage == 40)
 		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 0)
 		src.agony_moan()
-		//emote("moan")
+		emote("moan")
 
 	if (shock_stage >= 60)
 		//if(shock_stage == 60)
@@ -1044,7 +1044,7 @@
 	if(shock_stage >= 120)
 		if (prob(2))
 			custom_pain("[pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")]!", shock_stage, nohalloss = 0)
-			Paralyse(5)
+			adjustStaminaLoss(30)
 		//	flash_pain()
 		//	stuttering = max(stuttering, 5)
 
