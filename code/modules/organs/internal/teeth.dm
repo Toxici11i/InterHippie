@@ -14,9 +14,6 @@
 	name = "human teeth"
 	singular_name = "human tooth"
 
-/datum/species
-	var/teeth_type = /obj/item/stack/teeth/generic
-
 /datum/species/human
 	teeth_type = /obj/item/stack/teeth/human
 
