@@ -21,7 +21,6 @@
 	var/eye_icon = "eyes_s"
 	var/has_lips
 	var/list/teeth_list
-	var/teeth_type = obj/item/stack/teeth/generic
 	var/max_teeth = 32
 	var/eye_icon_location = 'icons/mob/human_face.dmi'
 
