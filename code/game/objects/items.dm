@@ -384,6 +384,9 @@
 	spawn(0) check_shadow()
 	return
 
+/obj/item/proc/can_be_dropped_by_client(mob/M)
+	return M.canUnEquip(src)
+
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
 /obj/item/proc/on_exit_storage(obj/item/weapon/storage/S as obj)
 	return
