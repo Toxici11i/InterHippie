@@ -151,8 +151,7 @@
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_APPENDIX = /obj/item/organ/internal/appendix,
 		BP_EYES =     /obj/item/organ/internal/eyes,
-		BP_TONGUE =   /obj/item/organ/internal/tongue,
-		BP_TEETH =    /obj/item/organ/internal/teeth
+		BP_TONGUE =   /obj/item/organ/internal/tongue
 		)
 	var/vision_organ              // If set, this organ is required for vision. Defaults to "eyes" if the species has them.
 
