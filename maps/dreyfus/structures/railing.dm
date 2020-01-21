@@ -287,7 +287,7 @@
 				G.affecting.Weaken(5)
 				visible_message("<span class='danger'>[G.assailant] throws [G.affecting] over \the [src]!</span>")
 			qdel(W)
-			return
+			return*/
 
 	else
 		playsound(loc, 'sound/effects/grillehit.ogg', 50, 1)
