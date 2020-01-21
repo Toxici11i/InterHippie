@@ -169,3 +169,4 @@
 			teeth.zero_amount() //Try to delete the teeth
 			done = 1
 			teeth_lost = drop
+		return done
