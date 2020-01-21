@@ -10,7 +10,7 @@
 	invocation = "Oni-Soma!"
 	invocation_type = SpI_SHOUT
 	range = 20
-	cooldown = 10
+	cooldown_min = 10 //2 deciseconds reduction per rank
 
 	level_max = list(Sp_TOTAL = 5, Sp_SPEED = 0, Sp_POWER = 5)
 
