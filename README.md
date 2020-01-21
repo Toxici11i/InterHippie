@@ -1,4 +1,4 @@
-# InterHippie - InterBay but twice as worse;_;7
+# InterHippie - InterBay but twice as worse
 [Baystation's Website](http://baystation12.net/) - [InterHippie's Code](https://github.com/butmun/InterHippie/)
 ---
 [![forthebadge](http://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](http://forthebadge.com)
