@@ -104,13 +104,12 @@
 	else
 		return
 
-
 /client/verb/drop_item()
 	set hidden = 1
 	if(!isrobot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
-		return mob.drop_item()
-	return
-
+		var/obj/item/I = mob.get_active_hand()
+		if(I && I.can_be_dropped_by_client(mob))
+			mob.drop_item()
 
 /client/Center()
 	/* No 3D movement in 2D spessman game. dir 16 is Z Up
