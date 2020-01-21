@@ -1215,6 +1215,7 @@
 	restore_blood()
 	full_prosthetic = null
 	shock_stage = 0
+	damage = 0
 	..()
 
 /mob/living/carbon/human/reset_view(atom/A)
