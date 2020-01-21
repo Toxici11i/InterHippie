@@ -10,7 +10,7 @@
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	mob_size = 9//Based on average weight of a human
 
-/mob/living/carbon/human/Initialize(mapload, var/new_species = null)
+/mob/living/carbon/human/New(mapload, var/new_species = null)
 	if(!dna)
 		dna = new /datum/dna(null)
 		// Species name is handled by set_species()
@@ -62,7 +62,6 @@
 	internal_organs_by_name = null
 	internal_organs = null
 	organs_by_name = null
-	bad_internal_organs = null
 	bad_external_organs = null
 	return . = ..()
 
