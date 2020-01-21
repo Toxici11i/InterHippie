@@ -107,6 +107,35 @@
 			res.overlays |= hair_s
 	return res
 
+/obj/item/stack/teeth
+	name = "teeth"
+	singular_name = "tooth"
+	w_class = 1
+	force = 0
+	throwforce = 0
+	max_amount = 32
+	gender = PLURAL
+	desc = "Welp. Someone had their teeth knocked out."
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "tooth1"
+	drop_sound = null
+
+/obj/item/stack/teeth/New()
+	..()
+	icon_state = "tooth[rand(1,3)]"
+
+/obj/item/stack/teeth/human
+	name = "human teeth"
+	singular_name = "human tooth"
+
+/obj/item/stack/teeth/generic //Used for species without unique teeth defined yet
+	name = "teeth"
+
+/obj/item/stack/proc/zero_amount()//Teeth shit
+	if(amount < 1)
+		qdel(src)
+		return 1
+	return 0
 
 /obj/item/organ/external/head/proc/get_teeth() //returns collective amount of teeth
 	var/amt = 0
@@ -141,35 +170,3 @@
 			teeth.zero_amount() //Try to delete the teeth
 			done = 1
 			teeth_lost = drop
-	return done
-
-
-/obj/item/stack/teeth
-	name = "teeth"
-	singular_name = "tooth"
-	w_class = 1
-	force = 0
-	throwforce = 0
-	max_amount = 32
-	gender = PLURAL
-	desc = "Welp. Someone had their teeth knocked out."
-	icon = 'icons/obj/surgery.dmi'
-	icon_state = "tooth1"
-	drop_sound = null
-
-/obj/item/stack/teeth/New()
-	..()
-	icon_state = "tooth[rand(1,3)]"
-
-/obj/item/stack/teeth/human
-	name = "human teeth"
-	singular_name = "human tooth"
-
-/obj/item/stack/teeth/generic //Used for species without unique teeth defined yet
-	name = "teeth"
-
-/obj/item/stack/proc/zero_amount()//Teeth shit
-	if(amount < 1)
-		qdel(src)
-		return 1
-	return 0
