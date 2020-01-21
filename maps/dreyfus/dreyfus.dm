@@ -29,6 +29,7 @@
 	#include "structures/furniture.dm"
 	#include "structures/gym.dm"
 	#include "structures/tile_types.dm"
+	//#include "structures/railing.dm"
 	//#include "structures/wall_icons.dm"
 	#include "structures/walls.dm"
 	#include "structures/machinery.dm"
