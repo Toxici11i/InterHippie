@@ -108,7 +108,7 @@
 			//dat +=  {"• <A href='?src=\ref[usr];interaction=threaten'><font color=red>Threaten.</font></A><BR>"}
 
 	if (mouthfree && (lying == P.lying || !lying))
-		if(H.partner.age >= 18)
+		if(H.partner.age >= 16)
 			dat += {"<font size=3><B>Mouth:</B></font><BR>"}
 			dat += {"<A href='?src=\ref[usr];interaction=kiss'>Kiss.</A><BR>"}
 			if (Adjacent(P))
@@ -126,7 +126,7 @@
 			//dat +=  {"• <A href='?src=\ref[usr];interaction=tongue'><font color=red>Stick out tongue.</font></A><BR>"}
 
 	if (isnude && usr.loc == H.partner.loc)
-		if(H.partner.age >= 18)
+		if(H.partner.age >= 16)
 			if (haspenis && hashands)
 				dat += {"<font size=3><B>ERP:</B></font><BR>"}
 				if (isnude_p)
