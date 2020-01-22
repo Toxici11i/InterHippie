@@ -328,9 +328,8 @@
 		return // Unequipping changes our state, so must check here.
 
 	if(user.put_in_active_hand(src))
-		if (isturf(old_loc))
-			var/obj/effect/temporary/item_pickup_ghost/ghost = new(old_loc, src)
-		ghost.animate_towards(user)
+		if (isturf(loc))
+			var/obj/effect/temporary/item_pickup_ghost/ghost = new(loc, src)
 		if(randpixel)
 			pixel_x = rand(-randpixel, randpixel)
 			pixel_y = rand(-randpixel/2, randpixel/2)
