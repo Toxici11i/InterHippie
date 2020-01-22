@@ -84,7 +84,7 @@
 	//else
 	//	dat +=  {"• <A href='?src=\ref[src];interaction=wave'>Ïîïðèâåòñòâîâàòü.</A><BR>"}
 	if (hashands)
-		if(H.partner.age >= 18)
+		if(H.partner.age >= 16)
 			dat +=  {"<font size=3><B>Hands:</B></font><BR>"}
 			if (Adjacent(P))
 				//dat +=  {"• <A href='?src=\ref[usr];interaction=handshake'>Give handshake.</A><BR>"}
