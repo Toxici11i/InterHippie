@@ -132,18 +132,13 @@
 /obj/item/stack/teeth/generic //Used for species without unique teeth defined yet
     name = "teeth"
 
-/obj/item/stack/proc/zero_amount()//Teeth shit
-    if(amount < 1)
-        qdel(src)
-        return 1
-    return 0
-
 /obj/item/organ/external/head/proc/get_teeth() //returns collective amount of teeth
     var/amt = 0
     if(!teeth_list) teeth_list = list()
     for(var/obj/item/stack/teeth in teeth_list)
         amt += teeth.amount
     return amt
+
 /obj/item/organ/external/head/proc/knock_out_teeth(throw_dir, num=32) //Won't support knocking teeth out of a dismembered head or anything like that yet.
     num = Clamp(num, 1, 32)
     var/done = 0
@@ -170,3 +165,9 @@
             done = 1
             teeth_lost = drop
         return done
+
+/obj/item/stack/proc/zero_amount()//Teeth shit
+    if(amount < 1)
+        qdel(src)
+        return 1
+    return 0
