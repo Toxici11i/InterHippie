@@ -84,10 +84,6 @@
 			return affected
 	return null
 
-/obj/item/weapon/grab/can_be_dropped_by_client(mob/M)
-	if(M == assailant)
-		return TRUE
-
 
 //This makes sure that the grab screen object is displayed in the correct hand.
 /obj/item/weapon/grab/proc/synch() //why is this needed?
