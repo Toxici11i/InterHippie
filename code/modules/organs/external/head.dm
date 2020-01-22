@@ -22,6 +22,7 @@
 	var/has_lips
 	var/list/teeth_list
 	var/max_teeth = 32
+	var/tooth = 32
 	var/eye_icon_location = 'icons/mob/human_face.dmi'
 
 /obj/item/organ/external/head/get_agony_multiplier()
