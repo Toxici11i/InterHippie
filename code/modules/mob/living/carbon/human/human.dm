@@ -48,8 +48,8 @@
 	if (prob(2)) // "30 cm penetrator"
 		potenzia = rand(25,30)
 	resistenza = (prob(80) ? rand(150, 300) : pick(rand(10, 100), rand(350,600)))
-	bladder = (0, 100)
-	bowels = (0, 100)
+	bladder = rand(0,100)
+	bowels = rand(0, 100)
 
 	if(dna)
 		dna.ready_dna(src)
