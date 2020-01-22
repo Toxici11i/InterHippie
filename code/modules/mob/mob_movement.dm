@@ -71,13 +71,6 @@
 /mob/proc/hotkey_drop()
 	to_chat(src, "<span class='warning'>This mob type cannot drop items.</span>")
 
-/mob/living/carbon/hotkey_drop()
-	var/obj/item/hand = get_active_hand()
-	if(!hand)
-		to_chat(src, "<span class='warning'>You have nothing to drop in your hand.</span>")
-	else if(hand.can_be_dropped_by_client(src))
-		drop_item()
-
 //This gets called when you press the delete button.
 /client/verb/delete_key_pressed()
 	set hidden = 1
@@ -118,7 +111,6 @@
 	set hidden = 1
 	if(!isrobot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
 		var/obj/item/I = mob.get_active_hand()
-		if(I && I.can_be_dropped_by_client(mob))
 			mob.drop_item()
 
 /client/Center()
