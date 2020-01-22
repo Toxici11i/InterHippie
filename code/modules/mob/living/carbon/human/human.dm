@@ -6,6 +6,7 @@
 	icon_state = "body_m_s"
 
 	var/list/hud_list[10]
+	var/max_teeth = 32
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	mob_size = 9//Based on average weight of a human
@@ -1200,13 +1201,12 @@
 						qdel(H)
 
 /mob/living/carbon/human/proc/add_teeth()
-	var/obj/item/bodypart/head
 	var/obj/item/stack/teeth/teeth = null
 	var/list/teeth_list = list() //Teeth are added in carbon/human/New()
 	teeth_list.Cut() //Clear out their mouth of teeth if they had any
 	if(teeth)
-		QDEL_NULL(teeth)
-	teeth = new (owner ? owner.dna.species.teeth_type : /obj/item/stack/teeth/generic)
+		del(teeth)
+	teeth = new /obj/item/stack/teeth/generic()
 	teeth.forceMove(src)
 	max_teeth = teeth.max_amount //Set max teeth for the head based on teeth spawntype
 	teeth.amount = teeth.max_amount
