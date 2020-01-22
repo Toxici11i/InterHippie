@@ -111,7 +111,7 @@
 	set hidden = 1
 	if(!isrobot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
 		var/obj/item/I = mob.get_active_hand()
-			mob.drop_item()
+			mob.drop_item(I)
 
 /client/Center()
 	/* No 3D movement in 2D spessman game. dir 16 is Z Up
