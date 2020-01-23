@@ -179,7 +179,7 @@
 		H.add_skills(rand(25, 50), rand(25,50), rand(65, 75))
 
 /datum/job/scientist
-	title = "Tenchotrainee"
+	title = "Technotrainee"
 	supervisors = "Technomancer"
 	minimal_player_age = 19
 	economic_modifier = 2
