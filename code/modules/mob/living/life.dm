@@ -104,7 +104,7 @@
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
-	handle_lisp()
+	//handle_lisp()
 	handle_tongueless()
 
 /mob/living/proc/handle_stunned()
@@ -141,6 +141,7 @@
 		slurring = max(slurring-1, 0)
 	return slurring
 
+/* //disabled until turret gets a better handle on his life
 /mob/living/proc/handle_lisp()
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
@@ -153,6 +154,7 @@
 		else
 			lisp = 0 //No head = no lisp.
 	return lisp
+*/
 
 /mob/living/proc/handle_tongueless()
 	if(ishuman(src))
