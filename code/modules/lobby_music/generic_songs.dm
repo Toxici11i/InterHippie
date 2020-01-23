@@ -9,3 +9,11 @@
 /lobby_music/lobby3
 	has_info = 0
 	song = 'sound/music/lobby3.ogg'
+
+/lobby_music/lobby4
+	has_info = 0
+	song = 'sound/music/lobby4.ogg'
+
+/lobby_music/lobby5
+	has_info = 0
+	song = 'sound/music/lobby5.ogg'
