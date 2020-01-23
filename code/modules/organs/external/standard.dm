@@ -10,6 +10,7 @@
 	icon_name = "torso"
 	max_damage = 100
 	min_broken_damage = 35
+	base_miss_chance = 10          // Chance of missing.
 	w_class = ITEM_SIZE_HUGE //Used for dismembering thresholds, in addition to storage. Humans are w_class 6, so it makes sense that chest is w_class 5.
 	body_part = UPPER_TORSO
 	vital = 1
@@ -41,6 +42,7 @@
 	icon_name = "groin"
 	max_damage = 100
 	min_broken_damage = 35
+	base_miss_chance = 10          // Chance of missing.
 	w_class = ITEM_SIZE_LARGE
 	body_part = LOWER_TORSO
 	vital = 1
@@ -56,7 +58,7 @@
 		owner.mutilate_genitals()
 		owner.visible_message("<span class='danger'><big>\The [owner]'s penis flies off in a bloody arc!</big></span>")
 		playsound(owner, 'sound/effects/gore/severed.ogg', 50, 1, -1)
-		
+
 		new /obj/item/organ/internal/penis(owner.loc)
 		/*
 		if(P && istype(loc,/turf))
@@ -74,6 +76,7 @@
 	icon_name = "l_arm"
 	max_damage = 50
 	min_broken_damage = 30
+	base_miss_chance = 10          // Chance of missing.
 	w_class = ITEM_SIZE_NORMAL
 	body_part = ARM_LEFT
 	parent_organ = BP_CHEST
@@ -105,6 +108,7 @@
 	icon_name = "l_leg"
 	max_damage = 50
 	min_broken_damage = 30
+	base_miss_chance = 10          // Chance of missing.
 	w_class = ITEM_SIZE_NORMAL
 	body_part = LEG_LEFT
 	icon_position = LEFT
@@ -139,6 +143,7 @@
 	icon_name = "l_foot"
 	max_damage = 30
 	min_broken_damage = 15
+	base_miss_chance = 30          // Chance of missing.
 	w_class = ITEM_SIZE_SMALL
 	body_part = FOOT_LEFT
 	icon_position = LEFT
@@ -177,6 +182,7 @@
 	icon_name = "l_hand"
 	max_damage = 30
 	min_broken_damage = 15
+	base_miss_chance = 20          // Chance of missing.
 	w_class = ITEM_SIZE_SMALL
 	body_part = HAND_LEFT
 	parent_organ = BP_L_ARM
