@@ -65,11 +65,8 @@
 					return
 				drop_item()
 			else
-				to_chat(src, "<span class='warning'>This mob type cannot drop items.</span>")
+				to_chat(usr, "<span class='warning'>This mob type cannot drop items.</span>")
 			return
-
-/mob/proc/hotkey_drop()
-	to_chat(src, "<span class='warning'>This mob type cannot drop items.</span>")
 
 //This gets called when you press the delete button.
 /client/verb/delete_key_pressed()
@@ -107,11 +104,13 @@
 	else
 		return
 
+
 /client/verb/drop_item()
 	set hidden = 1
 	if(!isrobot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
-		var/obj/item/I = mob.get_active_hand()
-			mob.drop_item(I)
+		return mob.drop_item()
+	return
+
 
 /client/Center()
 	/* No 3D movement in 2D spessman game. dir 16 is Z Up
