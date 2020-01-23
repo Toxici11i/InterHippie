@@ -358,7 +358,6 @@
 	var/obj/item/organ/external/head/O = locate(/obj/item/organ/external/head) in organs
 	if(O && O.get_teeth() < O.max_teeth)
 		msg += "<span class='warning'><B>There used to be a funny, and witty comment here. But Turret directly committed to master.</b></span>"
-	
 	if(is_nude() && (potenzia > -1) && gender == MALE && species.genitals)//Interactions
 		msg += "<B>Penis size: [potenzia]cm.</B>\n"
 
