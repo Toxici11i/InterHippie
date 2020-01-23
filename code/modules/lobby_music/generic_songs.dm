@@ -17,3 +17,11 @@
 /lobby_music/lobby5
 	has_info = 0
 	song = 'sound/music/lobby5.ogg'
+
+/lobby_music/lobby6
+	has_info = 0
+	song = 'sound/music/lobby6.ogg'
+
+/lobby_music/lobby7
+	has_info = 0
+	song = 'sound/music/lobby7ogg'
