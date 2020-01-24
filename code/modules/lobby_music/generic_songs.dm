@@ -24,4 +24,4 @@
 
 /lobby_music/lobby7
 	has_info = 0
-	song = 'sound/music/lobby7ogg'
+	song = 'sound/music/lobby7.ogg'
