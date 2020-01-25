@@ -129,7 +129,7 @@ var/obj/screen/robot_inventory
 	mymob.pullin.screen_loc = ui_borg_pull
 
 	mymob.zone_sel = new /obj/screen/zone_sel()
-	mymob.zone_sel.icon = 'icons/mob/screen1_robot.dmi'
+	mymob.zone_sel.icon = 'icons/mob/puppet_new.dmi'
 	mymob.zone_sel.overlays.Cut()
 	mymob.zone_sel.overlays += image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]")
 
