@@ -2,7 +2,7 @@ var/list/organ_cache = list()
 
 /obj/item/organ
 	name = "organ"
-	icon = 'icons/obj/severed.dmi'
+	icon = 'icons/obj/surgery.dmi'
 	germ_level = 0
 	drop_sound = 'sound/items/flesh_drop.ogg'
 
