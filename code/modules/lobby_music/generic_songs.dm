@@ -29,5 +29,10 @@
 /lobby_music/lobby8
 	has_info = 0
 	song = 'sound/music/lobby8.ogg'
+	
+/lobby_music/lobby9
+	has_info = 0
+	song = 'sound/music/lobby9.ogg'
 
 //those will be last
+//pranked
