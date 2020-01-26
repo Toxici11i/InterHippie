@@ -1,3 +1,6 @@
+//Amount of time in deciseconds to wait before deleting all drawn segments of a projectile.
+#define SEGMENT_DELETION_DELAY 2
+
 /obj/item/projectile
 	name = "projectile"
 	icon = 'icons/obj/projectiles.dmi'
@@ -77,6 +80,11 @@
 		qdel_null_list(segments)
 	return ..()
 
+/obj/item/projectile/forceMove()
+	..()
+	if(istype(loc, /turf/space/) && istype(loc.loc, /area/space))
+		qdel(src)
+
 //TODO: make it so this is called more reliably, instead of sometimes by bullet_act() and sometimes not
 /obj/item/projectile/proc/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	var/turf/target_loca = get_turf(target)
@@ -105,6 +113,7 @@
 	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, blocked)
 	//radiation protection is handled separately from other armour types.
 	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad"))
+
 
 	return 1
 
@@ -165,6 +174,8 @@
 	spawn()
 		setup_trajectory(curloc, targloc, x_offset, y_offset, angle_offset) //plot the initial trajectory
 		process()
+		spawn(SEGMENT_DELETION_DELAY)
+			qdel_null_list(segments)
 
 	return 0
 
