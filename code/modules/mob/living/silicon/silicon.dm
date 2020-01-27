@@ -81,7 +81,6 @@
 		visible_message("<span class='warning'>\The [src] was shocked by \the [source]!</span>", \
 			"<span class='danger'>Energy pulse detected, system damaged!</span>", \
 			"<span class='warning'>You hear an electrical crack</span>")
-		if(prob(20))
 			Stun(2)
 		return
 
