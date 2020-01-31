@@ -18,7 +18,7 @@
 	var/custom_name = ""
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
 	var/crisis //Admin-settable for combat module use.
-	var/crisis_override = 1
+	var/crisis_override = 0 //bad idea
 	var/integrated_light_power = 6
 	var/datum/wires/robot/wires
 
