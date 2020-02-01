@@ -1,6 +1,6 @@
-
-var/global/list/uplink_locations = list("PDA", "Headset", "None")
-var/exploit_record = ""
+/datum/preferences
+	var/uplinklocation = "PDA", "Headset", "None"
+	var/exploit_record = ""
 
 /datum/category_item/player_setup_item/antagonism/basic
 	name = "Setup"
