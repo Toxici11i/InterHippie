@@ -260,8 +260,8 @@
 	if(module)
 		return
 	var/list/modules = list()
-	modules.Add(robot_module_types)
-	if((security_level == SEC_LEVEL_BLUE) || crisis_override) //Leaving this in until it's balanced appropriately.
+	modules.Add(GLOB.robot_module_types)
+	if((crisis && security_level == SEC_LEVEL_RED) || crisis_override) //Leaving this in until it's balanced appropriately.
 		to_chat(src, "<span class='warning'>Crisis mode active. Combat module available.</span>")
 		modules+="Combat"
 	modtype = input("Please, select a module!", "Robot module", null, null) as null|anything in modules
@@ -310,7 +310,7 @@
 
 	// Synths aren't in data_core, but are on manifest. Invalidate old one so the
 	// synth shows up.
-	data_core.ResetPDAManifest()
+	GLOB.data_core.ResetPDAManifest()
 
 	//We also need to update name of internal camera.
 	if (camera)
@@ -1077,7 +1077,7 @@
 				clear_inherent_laws()
 				laws = new /datum/ai_laws/syndicate_override
 				var/time = time2text(world.realtime,"hh:mm:ss")
-				lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
+				GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 				set_zeroth_law("Only [user.real_name] and people \he designates as being such are operatives.")
 				SetLockdown(0)
 				. = 1
