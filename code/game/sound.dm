@@ -188,7 +188,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 /client/proc/playtitlemusic()
 		GLOB.using_map.lobby_music.play_to(src)
 		if(is_preference_enabled(/datum/client_preference/play_lobby_music))
-		to_chat(src, "<i>Now playing:</i> <b>[using_map.lobby_music]</b>.")
+		to_chat(src, "<i>Now playing:</i> <b>[GLOB.using_map.lobby_music]</b>.")
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.

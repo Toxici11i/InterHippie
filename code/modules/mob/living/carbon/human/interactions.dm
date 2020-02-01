@@ -228,8 +228,6 @@
 		H.erpcooldown = 600
 	H.add_event("came", /datum/happiness_event/came)
 
-	times_came++
-
 mob/living/carbon/human/proc/fuck(mob/living/carbon/human/H as mob, mob/living/carbon/human/P as mob, var/hole)
 	var/message = ""
 	H.adjustStaminaLoss(2)

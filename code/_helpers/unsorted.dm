@@ -1160,7 +1160,4 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	if (Ref.loc != T)
 		return 0
 
-/proc/pass()
-	return 1
-
 	return 1

@@ -105,11 +105,6 @@ var/datum/controller/subsystem/verina_controller/SSverina
 	value = 25
 	message="will received a burst of soothing psychic energy that will effect all true believers."
 
-/datum/reward/happiness/do_reward()
-	for(var/mob/living/carbon/human/H in GLOB.living_mob_list_)
-		if(H.religion == LEGAL_RELIGION)
-			H.add_event("fulfilledrequest", /datum/happiness_event/request_fulfilled)
-
 /datum/reward/random_crate
 	name = "Random Crate"
 	value = 50
@@ -172,14 +167,3 @@ var/datum/controller/subsystem/verina_controller/SSverina
 	value = 35
 	message = "has had a on-board machine disabled until Verina is placated."
 	var/obj/machinery/machine_disabled = null
-
-/datum/punishment/disable_machinary/do_punishment()
-	var/obj/machinery/target = pick(religion_controlled_machines) //Pick a machine to disable
-	//to_world("Disabling [target]")
-	target.religion_denied = 1
-	target.overlays += image('icons/effects/effects.dmi',"energynet")
-	machine_disabled = target
-
-/datum/punishment/disable_machinary/undo_punishment()
-	machine_disabled.religion_denied = 0 //Turn the machine back on
-	machine_disabled.overlays.Cut()

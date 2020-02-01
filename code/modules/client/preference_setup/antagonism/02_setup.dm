@@ -1,5 +1,5 @@
 /datum/preferences
-	var/uplinklocation = "PDA", "Headset", "None"
+	var/uplinklocation = "PDA"
 	var/exploit_record = ""
 
 /datum/category_item/player_setup_item/antagonism/basic

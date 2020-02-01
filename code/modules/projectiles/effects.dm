@@ -8,7 +8,7 @@
 	var/illum_strength = 1
 	var/illum_color = "#FF00DC"
 
-/obj/effect/projectile/initialize()
+/obj/effect/projectile/Initialize()
 	. = ..()
 	set_light(illum_range, illum_strength, illum_color)
 
