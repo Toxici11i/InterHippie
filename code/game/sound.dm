@@ -187,7 +187,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 
 /client/proc/playtitlemusic()
 		GLOB.using_map.lobby_music.play_to(src)
-	if(is_preference_enabled(/datum/client_preference/play_lobby_music))
+		if(is_preference_enabled(/datum/client_preference/play_lobby_music))
 		to_chat(src, "<i>Now playing:</i> <b>[using_map.lobby_music]</b>.")
 
 /proc/get_rand_frequency()
