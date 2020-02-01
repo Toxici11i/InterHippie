@@ -68,7 +68,7 @@
 	var/matrix/effect_transform			// matrix to rotate and scale projectile effects - putting it here so it doesn't
 										//  have to be recreated multiple times
 
-/obj/item/projectile/initialize()
+/obj/item/projectile/Initialize()
 	damtype = damage_type //TODO unify these vars properly
 	if(!hitscan)
 		animate_movement = SLIDE_STEPS
@@ -77,7 +77,7 @@
 
 /obj/item/projectile/Destroy()
 	spawn(step_delay)
-		qdel_null_list(segments)
+		QDEL_NULL_LIST(segments)
 	return ..()
 
 /obj/item/projectile/forceMove()
@@ -175,7 +175,7 @@
 		setup_trajectory(curloc, targloc, x_offset, y_offset, angle_offset) //plot the initial trajectory
 		process()
 		spawn(SEGMENT_DELETION_DELAY)
-			qdel_null_list(segments)
+			QDEL_NULL_LIST(segments)
 
 	return 0
 
