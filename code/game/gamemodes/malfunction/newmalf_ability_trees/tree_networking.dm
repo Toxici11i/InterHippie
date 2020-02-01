@@ -68,11 +68,11 @@
 	log_ability_use(user, "basic encryption hack", A, 0)	// Does not notify admins, but it's still logged for reference.
 	user.hacking = 1
 	to_chat(user, "Beginning APC system override...")
-	sleep(300)
+	sleep(150)
 	to_chat(user, "APC hack completed. Uploading modified operation software..")
-	sleep(200)
-	to_chat(user, "Restarting APC to apply changes..")
 	sleep(100)
+	to_chat(user, "Restarting APC to apply changes..")
+	sleep(50)
 	if(A)
 		A.ai_hack(user)
 		if(A.hacker == user)

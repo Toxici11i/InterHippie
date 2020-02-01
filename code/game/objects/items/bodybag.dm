@@ -4,7 +4,7 @@
 	name = "body bag"
 	desc = "A folded bag designed for the storage and transportation of cadavers."
 	icon = 'icons/obj/bodybag.dmi'
-	icon_state = "b00"
+	icon_state = "bodybag_folded"
 	w_class = ITEM_SIZE_SMALL
 
 	attack_self(mob/user)
@@ -32,9 +32,9 @@
 	name = "body bag"
 	desc = "A plastic bag designed for the storage and transportation of cadavers."
 	icon = 'icons/obj/bodybag.dmi'
-	icon_state = "b00"
-	icon_closed = "b01"
-	icon_opened = "b666"
+	icon_state = "bodybag_closed1"
+	icon_closed = "bodybag_closed"
+	icon_opened = "bodybag_open"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
 	var/item_path = /obj/item/bodybag

@@ -79,9 +79,9 @@
 		shock_damage *= 0.75	//take reduced damage
 		take_overall_damage(0, shock_damage)
 		visible_message("<span class='warning'>\The [src] was shocked by \the [source]!</span>", \
-			"<span class='danger'>Energy pulse detected, system damaged!</span>", \
-			"<span class='warning'>You hear an electrical crack</span>")
-			Stun(2)
+		"<span class='danger'>Energy pulse detected, system damaged!</span>", \
+		"<span class='warning'>You hear an electrical crack</span>")
+		Stun(2)
 		return
 
 /mob/living/silicon/proc/damage_mob(var/brute = 0, var/fire = 0, var/tox = 0)
