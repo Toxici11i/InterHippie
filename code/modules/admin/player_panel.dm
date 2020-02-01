@@ -6,27 +6,19 @@
 
 	//javascript, the part that does most of the work~
 	dat += {"
-
 		<head>
 			<script type='text/javascript'>
-
 				var locked_tabs = new Array();
-
 				function updateSearch(){
-
-
 					var filter_text = document.getElementById('filter');
 					var filter = filter_text.value.toLowerCase();
-
 					if(complete_list != null && complete_list != ""){
 						var mtbl = document.getElementById("maintable_data_archive");
 						mtbl.innerHTML = complete_list;
 					}
-
 					if(filter.value == ""){
 						return;
 					}else{
-
 						var maintable_data = document.getElementById('maintable_data');
 						var ltr = maintable_data.getElementsByTagName("tr");
 						for ( var i = 0; i < ltr.length; ++i )
@@ -52,29 +44,18 @@
 							}catch(err) {   }
 						}
 					}
-
 					var count = 0;
 					var index = -1;
 					var debug = document.getElementById("debug");
-
 					locked_tabs = new Array();
-
 				}
-
 				function expand(id,job,name,real_name,image,key,ip,antagonist,ref){
-
 					clearAll();
-
 					var span = document.getElementById(id);
-
 					body = "<table><tr><td>";
-
 					body += "</td><td align='center'>";
-
 					body += "<font size='2'><b>"+job+" "+name+"</b><br><b>Real name "+real_name+"</b><br><b>Played by "+key+" ("+ip+")</b></font>"
-
 					body += "</td><td align='center'>";
-
 					body += "<a href='?src=\ref[src];adminplayeropts="+ref+"'>PP</a> - "
 					body += "<a href='?src=\ref[src];notes=show;mob="+ref+"'>N</a> - "
 					body += "<a href='?_src_=vars;Vars="+ref+"'>VV</a> - "
@@ -84,42 +65,28 @@
 					body += "<a href='?src=\ref[src];adminplayerobservejump="+ref+"'>JMP</a><br>"
 					if(antagonist > 0)
 						body += "<font size='2'><a href='?src=\ref[src];check_antagonist=1'><font color='red'><b>Antagonist</b></font></a></font>";
-
 					body += "</td></tr></table>";
-
-
 					span.innerHTML = body
 				}
-
 				function clearAll(){
 					var spans = document.getElementsByTagName('span');
 					for(var i = 0; i < spans.length; i++){
 						var span = spans\[i\];
-
 						var id = span.getAttribute("id");
-
 						if(!(id.indexOf("item")==0))
 							continue;
-
 						var pass = 1;
-
 						for(var j = 0; j < locked_tabs.length; j++){
 							if(locked_tabs\[j\]==id){
 								pass = 0;
 								break;
 							}
 						}
-
 						if(pass != 1)
 							continue;
-
-
-
-
 						span.innerHTML = "";
 					}
 				}
-
 				function addToLocked(id,link_id,notice_span_id){
 					var link = document.getElementById(link_id);
 					var decision = link.getAttribute("name");
@@ -130,7 +97,6 @@
 						removeFromLocked(id,link_id,notice_span_id);
 						return;
 					}
-
 					var pass = 1;
 					for(var j = 0; j < locked_tabs.length; j++){
 						if(locked_tabs\[j\]==id){
@@ -147,11 +113,9 @@
 					//document.write("removeFromLocked('"+id+"','"+link_id+"','"+notice_span_id+"')");
 					//document.write("aa - "+link.getAttribute("onClick"));
 				}
-
 				function attempt(ab){
 					return ab;
 				}
-
 				function removeFromLocked(id,link_id,notice_span_id){
 					//document.write("a");
 					var index = 0;
@@ -171,17 +135,13 @@
 					//var link = document.getElementById(link_id);
 					//link.setAttribute("onClick","addToLocked('"+id+"','"+link_id+"','"+notice_span_id+"')");
 				}
-
 				function selectTextField(){
 					var filter_text = document.getElementById('filter');
 					filter_text.focus();
 					filter_text.select();
 				}
-
 			</script>
 		</head>
-
-
 	"}
 
 	//body tag start + onload and onkeypress (onkeyup) javascript event calls
@@ -189,7 +149,6 @@
 
 	//title + search bar
 	dat += {"
-
 		<table width='560' align='center' cellspacing='0' cellpadding='5' id='maintable'>
 			<tr id='title_tr'>
 				<td align='center'>
@@ -204,7 +163,6 @@
 				</td>
 			</tr>
 	</table>
-
 	"}
 
 	//player table header
@@ -289,7 +247,6 @@
 
 			//output for each mob
 			dat += {"
-
 				<tr id='data[i]' name='[i]' onClick="addToLocked('item[i]','data[i]','notice_span[i]')">
 					<td align='center' bgcolor='[color]'>
 						<span id='notice_span[i]'></span>
@@ -301,7 +258,6 @@
 						<br><span id='item[i]'></span>
 					</td>
 				</tr>
-
 			"}
 
 			i++
@@ -311,7 +267,6 @@
 	dat += {"
 		</table>
 		</span>
-
 		<script type='text/javascript'>
 			var maintable = document.getElementById("maintable_data_archive");
 			var complete_list = maintable.innerHTML;
