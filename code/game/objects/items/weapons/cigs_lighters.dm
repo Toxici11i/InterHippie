@@ -558,7 +558,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				else
 					lit = 1
 					set_light(2, 1, "#E38F46")
-					processing_objects.Add(src)
+					GLOB.processing_objects.Add(src)
 					icon_state = "[base_state]on"
 					item_state = "[base_state]on"
 					to_chat(user, "<span class='warning'>You burn yourself while lighting the lighter.</span>")
