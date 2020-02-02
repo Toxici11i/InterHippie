@@ -123,7 +123,7 @@
 
 
 //Raider outfit.
-/decl/hierarchy/outfit/shipraiders
+/*/decl/hierarchy/outfit/shipraiders
 	name = "Raiders"
 	head = /obj/item/clothing/head/helmet/siege
 	uniform = /obj/item/clothing/under/ert/raider
@@ -133,4 +133,4 @@
 	suit = /obj/item/clothing/suit/storage/vest/opvest
 	gloves = /obj/item/clothing/gloves/thick/swat/combat
 	flags = OUTFIT_NO_BACKPACK|OUTFIT_NO_SURVIAL_GEAR
-	cash = 0
+	cash = 0*/
