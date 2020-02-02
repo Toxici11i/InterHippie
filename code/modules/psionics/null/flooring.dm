@@ -8,7 +8,6 @@
 	name = "nullglass plating"
 	desc = "You can hear the tiles whispering..."
 	icon_base = "nullglass"
-	color = COLOR_NULLGLASS
 	has_damage_range = null
 	flags = TURF_REMOVE_SCREWDRIVER
 	build_type = /obj/item/stack/tile/floor_nullglass

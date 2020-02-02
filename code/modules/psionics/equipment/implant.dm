@@ -33,31 +33,26 @@
 /obj/item/weapon/implant/psi_control/removed()
 	var/mob/living/M = imp_in
 	if(disrupts_psionics() && istype(M) && M.psi)
-		to_chat(M, SPAN_NOTICE("You feel the chilly shackles around your psionic faculties fade away."))
+		to_chat(M,  ("You feel the chilly shackles around your psionic faculties fade away."))
 	. = ..()
 
 /obj/item/weapon/implant/psi_control/proc/update_functionality(var/silent)
 	var/mob/living/M = imp_in
 	if(get_psi_mode() == PSI_IMPLANT_DISABLED || malfunction)
 		if(implanted && !silent && istype(M) && M.psi)
-			to_chat(M, SPAN_NOTICE("You feel the chilly shackles around your psionic faculties fade away."))
+			to_chat(M,  ("You feel the chilly shackles around your psionic faculties fade away."))
 	else
 		if(implanted && !silent && istype(M) && M.psi)
-			to_chat(M, SPAN_NOTICE("Bands of hollow ice close themselves around your psionic faculties."))
+			to_chat(M,  ("Bands of hollow ice close themselves around your psionic faculties."))
 
 /obj/item/weapon/implant/psi_control/meltdown()
 	if(!malfunction)
 		overload = 100
-		if(imp_in)
-			for(var/thing in SSpsi.psi_monitors)
-				var/obj/machinery/psi_monitor/monitor = thing
-				monitor.report_failure(src)
 	. = ..()
 
 /obj/item/weapon/implant/psi_control/proc/get_psi_mode()
-	if(psi_mode == PSI_IMPLANT_AUTOMATIC)
-		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
-		return security_state.current_security_level.psionic_control_level
+	//if(psi_mode == PSI_IMPLANT_AUTOMATIC)
+	//there was a really gay HRP feature here so its gone
 	return psi_mode
 
 /obj/item/weapon/implant/psi_control/withstand_psi_stress(var/stress, var/atom/source)
@@ -78,31 +73,28 @@
 				overload += overload_amount
 				if(overload >= 100)
 					if(imp_in)
-						to_chat(imp_in, SPAN_DANGER("Your psi dampener overloads violently!"))
+						to_chat(imp_in, ("Your psi dampener overloads violently!"))
 					meltdown()
 					update_functionality()
 					return
 				if(imp_in)
 					if(overload >= 75 && overload < 100)
-						to_chat(imp_in, SPAN_DANGER("Your psi dampener is searing hot!"))
+						to_chat(imp_in, ("Your psi dampener is searing hot!"))
 					else if(overload >= 50 && overload < 75)
-						to_chat(imp_in, SPAN_WARNING("Your psi dampener is uncomfortably hot..."))
+						to_chat(imp_in,  ("Your psi dampener is uncomfortably hot..."))
 					else if(overload >= 25 && overload < 50)
-						to_chat(imp_in, SPAN_WARNING("You feel your psi dampener heating up..."))
+						to_chat(imp_in,  ("You feel your psi dampener heating up..."))
 
 		// If all we're doing is logging the incident then just pass back stress without changing it.
 		if(source && source == imp_in && implanted)
-			for(var/thing in SSpsi.psi_monitors)
-				var/obj/machinery/psi_monitor/monitor = thing
-				monitor.report_violation(src, stress)
 			if(use_psi_mode == PSI_IMPLANT_LOG)
 				return stress
 			else if(use_psi_mode == PSI_IMPLANT_SHOCK)
-				to_chat(imp_in, SPAN_DANGER("Your psi dampener punishes you with a violent neural shock!"))
+				to_chat(imp_in, ("Your psi dampener punishes you with a violent neural shock!"))
 				imp_in.flash_eyes()
 				imp_in.Weaken(5)
 				if(isliving(imp_in))
 					var/mob/living/M = imp_in
 					if(M.psi) M.psi.stunned(5)
 			else if(use_psi_mode == PSI_IMPLANT_WARN)
-				to_chat(imp_in, SPAN_WARNING("Your psi dampener primly informs you it has reported this violation."))
+				to_chat(imp_in,  ("Your psi dampener primly informs you it has reported this violation."))

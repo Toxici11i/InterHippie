@@ -3,7 +3,7 @@
 	desc = "A bulky psi-meter for conducting assays of psi-operants."
 	icon = 'icons/obj/machines/psimeter.dmi'
 	icon_state = "meter_on"
-	use_power = POWER_USE_ACTIVE
+	use_power = 5
 	anchored = TRUE
 	density = TRUE
 	opacity = FALSE

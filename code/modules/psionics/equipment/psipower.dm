@@ -1,7 +1,6 @@
 /obj/item/psychic_power
 	name = "psychic power"
 	icon = 'icons/obj/psychic_powers.dmi'
-	atom_flags = 0
 	simulated = 1
 	anchored = 1
 	var/maintain_cost = 3
@@ -12,14 +11,14 @@
 	if(!istype(owner))
 		qdel(src)
 		return
-	START_PROCESSING(SSprocessing, src)
+	GLOB.processing_objects += src
 	..()
 
 /obj/item/psychic_power/Destroy()
 	if(istype(owner) && owner.psi)
 		LAZYREMOVE(owner.psi.manifested_items, src)
 		UNSETEMPTY(owner.psi.manifested_items)
-	STOP_PROCESSING(SSprocessing, src)
+	GLOB.processing_objects -= src
 	. = ..()
 
 /obj/item/psychic_power/get_storage_cost()
@@ -45,7 +44,7 @@
 	..()
 	qdel(src)
 
-/obj/item/psychic_power/Process()
+/obj/item/psychic_power/process()
 	if(istype(owner))
 		owner.psi.spend_power(maintain_cost)
 	if(!owner || owner.do_psionics_check(maintain_cost, owner) || loc != owner || (owner.l_hand != src && owner.r_hand != src))

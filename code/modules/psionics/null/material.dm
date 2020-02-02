@@ -25,4 +25,3 @@
 
 /material/nullglass/generate_recipes()
 	. = ..()
-	. += new /datum/stack_recipe/tile/nullglass(src)

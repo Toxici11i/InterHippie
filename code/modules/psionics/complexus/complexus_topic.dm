@@ -7,7 +7,7 @@
 		if(href_list["remove_psionics"])
 			if(owner && owner.psi && owner.psi == src && !QDELETED(src))
 				log_and_message_admins("removed all psionics from [key_name(owner)].")
-				to_chat(owner, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
+				to_chat(owner,  ("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 				QDEL_NULL(owner.psi)
 			. = TRUE
 		if(href_list["trigger_psi_latencies"])
@@ -16,5 +16,5 @@
 			. = TRUE
 		if(.)
 			var/datum/admins/admin = GLOB.admins[usr.key]
-			if(istype(admin)) 
+			if(istype(admin))
 				admin.show_player_panel(owner)

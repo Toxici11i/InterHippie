@@ -8,7 +8,7 @@
 	focus = null
 	. = ..()
 
-/obj/item/psychic_power/telekinesis/Process()
+/obj/item/psychic_power/telekinesis/process()
 	if(!focus || !istype(focus.loc, /turf) || get_dist(get_turf(focus), get_turf(owner)) > owner.psi.get_rank(PSI_PSYCHOKINESIS))
 		owner.drop_from_inventory(src)
 		return
@@ -33,7 +33,7 @@
 		focus = _focus
 		. = attack_self(owner)
 		if(!.)
-			to_chat(owner, SPAN_WARNING("\The [_focus] is too hefty for you to get a mind-grip on."))
+			to_chat(owner, ("\The [_focus] is too hefty for you to get a mind-grip on."))
 		qdel(src)
 		return FALSE
 
@@ -45,10 +45,12 @@
 	overlays += I
 	return TRUE
 
+/*
 /obj/item/psychic_power/telekinesis/attack_self(var/mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] makes a strange gesture."))
+	user.visible_message(("\The [user] makes a strange gesture."))
 	sparkle()
 	return focus.do_simple_ranged_interaction(user)
+*/ //is not supported yet
 
 /obj/item/psychic_power/telekinesis/afterattack(var/atom/target, var/mob/living/user, var/proximity)
 
@@ -60,22 +62,22 @@
 
 	var/user_psi_leech = user.do_psionics_check(5, user)
 	if(user_psi_leech)
-		to_chat(user, SPAN_WARNING("You reach for \the [target] but your telekinetic power is leeched away by \the [user_psi_leech]..."))
+		to_chat(user, ("You reach for \the [target] but your telekinetic power is leeched away by \the [user_psi_leech]..."))
 		return
 
 	if(target.do_psionics_check(5, user))
-		to_chat(user, SPAN_WARNING("Your telekinetic power skates over \the [target] but cannot get a grip..."))
+		to_chat(user, ("Your telekinetic power skates over \the [target] but cannot get a grip..."))
 		return
 
 	var/distance = get_dist(get_turf(user), get_turf(focus ? focus : target))
 	if(distance > user.psi.get_rank(PSI_PSYCHOKINESIS))
-		to_chat(user, SPAN_WARNING("Your telekinetic power won't reach that far."))
+		to_chat(user, ("Your telekinetic power won't reach that far."))
 		return FALSE
 
 	if(target == focus)
 		attack_self(user)
 	else
-		user.visible_message(SPAN_DANGER("\The [user] gestures sharply!"))
+		user.visible_message(("\The [user] gestures sharply!"))
 		sparkle()
 		if(!istype(target, /turf) && istype(focus,/obj/item) && target.Adjacent(focus))
 			var/obj/item/I = focus

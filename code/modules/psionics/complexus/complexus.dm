@@ -54,28 +54,33 @@
 	aura_image.pixel_y = -64
 	aura_image.mouse_opacity = 0
 	aura_image.appearance_flags = 0
-	for(var/thing in SSpsi.processing)
+/*
+	for(var/thing in SSpsi.processing_objects)
 		var/datum/psi_complexus/psychic = thing
 		if(psychic.owner.client && !psychic.suppressed)
 			psychic.owner.client.images += aura_image
 	SSpsi.all_aura_images[aura_image] = TRUE
+*/
 	return aura_image
 
 /proc/destroy_aura_image(var/image/aura_image)
-	for(var/thing in SSpsi.processing)
+
+/*
+	for(var/thing in SSpsi.GLOB.processing_objects)
 		var/datum/psi_complexus/psychic = thing
 		if(psychic.owner.client)
 			psychic.owner.client.images -= aura_image
 	SSpsi.all_aura_images -= aura_image
-
+*/
+//these will eventually do something but currently cannot be fixed
 /datum/psi_complexus/New(var/mob/_owner)
 	owner = _owner
-	START_PROCESSING(SSpsi, src)
+	GLOB.processing_objects += src
 	set_extension(src, /datum/extension/armor/psionic)
 
 /datum/psi_complexus/Destroy()
 	destroy_aura_image(_aura_image)
-	STOP_PROCESSING(SSpsi, src)
+	GLOB.processing_objects -= src
 	if(owner)
 		cancel()
 		if(owner.client)
