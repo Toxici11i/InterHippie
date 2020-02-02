@@ -19,15 +19,14 @@ PROCESSING_SUBSYSTEM_DEF(psi)
 
 /datum/controller/subsystem/processing/psi/Initialize()
 	. = ..()
-
-	var/list/faculties = typesof(/decl/psionic_faculty)
+	var/list/faculties = decls_repository.decls_of_subtype(/decl/psionic_faculty)
 	for(var/ftype in faculties)
 		var/decl/psionic_faculty/faculty = faculties[ftype]
 		faculties_by_id[faculty.id] = faculty
 		faculties_by_name[faculty.name] = faculty
 		faculties_by_intent[faculty.associated_intent] = faculty.id
 
-	var/list/powers = typesof(/decl/psionic_power)
+	var/list/powers = decls_repository.decls_of_subtype(/decl/psionic_power)
 	for(var/ptype in powers)
 		var/decl/psionic_power/power = powers[ptype]
 		if(power.faculty)

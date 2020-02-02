@@ -70,7 +70,7 @@
 		to_chat(owner, ("<b>Shift-left-click your Psi icon</b> on the bottom right to <b>view a summary of how to use them</b>, or <b>left click</b> it to <b>suppress or unsuppress</b> your psionics. Beware: overusing your gifts can have <b>deadly consequences</b>."))
 		to_chat(owner, "<hr>")
 
-/datum/psi_complexus/update()
+/datum/psi_complexus/proc/process()
 
 	var/update_hud
 	if(stun)
