@@ -1,4 +1,4 @@
-#if !defined(USING_MAP_DATUM)
+#if !defined(using_map_DATUM)
 	#include "bunker_areas.dm"
 
 	#include "bunker_unit_testing.dm"
@@ -18,7 +18,7 @@
 
 	#include "../../code/modules/lobby_music/generic_songs.dm"
 
-	#define USING_MAP_DATUM /datum/map/bunker
+	#define using_map_DATUM /datum/map/bunker
 
 #elif !defined(MAP_OVERRIDE)
 
