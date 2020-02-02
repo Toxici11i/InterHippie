@@ -23,6 +23,19 @@
 		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
 	return
 
+/*/client/verb/discord()
+	set name = "discord"
+	set desc = "Join the discord."
+	set hidden = 1
+	if( config.discordurl )
+		if(alert("This will invite you to the discord and will open in your browser. Are you sure?",,"Yes","No")=="No")
+			return
+		src << link(config.discordurl)
+	else
+		to_chat(src, "<span class='warning'>The discord link is not set in the server configuration.</span>")
+	return*/
+//commented out for now
+
 #define RULES_FILE "config/rules.html"
 /client/verb/rules()
 	set name = "Rules"
@@ -63,6 +76,9 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tr = throw
 \tt = say
 \to = ooc
+\tspace = toggle_combat_mode
+\tv = toggle_dodge_parry
+\ty = surrender
 \t5 = emote
 \tx = swap-hand
 \tz = activate held object (or y)

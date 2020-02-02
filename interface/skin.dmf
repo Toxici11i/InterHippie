@@ -632,6 +632,18 @@ macro "hotkeymode"
 		command = "holster"
 		is-disabled = false
 	elem 
+		name = "SPACE"
+		command = "toggle_combat_mode"
+		is-disabled = false
+	elem 
+		name = "V"
+		command = "toggle_dodge_parry"
+		is-disabled = false
+	elem 
+		name = "Y"
+		command = "surrender"
+		is-disabled = false
+	elem 
 		name = "J"
 		command = "toggle-gun-mode"
 		is-disabled = false
@@ -709,6 +721,10 @@ macro "hotkeymode"
 		is-disabled = false
 	elem 
 		name = "F2"
+		command = "ooc"
+		is-disabled = false
+	elem 
+		name = "O"
 		command = "ooc"
 		is-disabled = false
 	elem 
@@ -907,6 +923,10 @@ macro "borgmacro"
 		is-disabled = false
 	elem 
 		name = "F2"
+		command = "ooc"
+		is-disabled = false
+	elem 
+		name = "O"
 		command = "ooc"
 		is-disabled = false
 	elem 
