@@ -212,7 +212,7 @@ proc/get_open_ticket_by_client(var/datum/client_lite/owner)
 			open_ticket = ticket
 			ticket_panel_window.set_content(get_dat())
 			ticket_panel_window.update()
-			if("take")
+		if("take")
 			ticket.take(client_repository.get_lite_client(usr.client))
 		if("close")
 			ticket.close(client_repository.get_lite_client(usr.client))
