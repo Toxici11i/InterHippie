@@ -121,6 +121,7 @@
 // Reads the length of L, returning 0 if null
 #define LAZYLEN(L) length(L)
 // Null-safe L.Cut()
+#define LAZYSET(L, A, I) if(!L) { L = list(); } L[A] = I;
 #define LAZYCLEARLIST(L) if(L) L.Cut()
 // Reads L or an empty list if L is not a list.  Note: Does NOT assign, L may be an expression.
 #define SANITIZE_LIST(L) ( islist(L) ? L : list() )

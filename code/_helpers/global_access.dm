@@ -35,6 +35,8 @@
 			return global.Debug2;
 		if("EPILEPSYBLOCK")
 			return global.EPILEPSYBLOCK;
+		if("SSpsi")
+			return global.SSpsi;
 		if("FAKEBLOCK")
 			return global.FAKEBLOCK;
 		if("FIREBLOCK")
@@ -2376,6 +2378,8 @@
 			global.transfer_controller=newval;
 		if("turbolift_controller")
 			global.turbolift_controller=newval;
+		if("SSpsi")
+			global.SSpsi=newval;
 		if("turbolifts")
 			global.turbolifts=newval;
 		if("turfs")
@@ -3045,6 +3049,7 @@
 	"whitelist",
 	"whitelisted_species",
 	"wireColours",
+	"SSpsi",
 	"wirelessProcess",
 	"wizards",
 	"world_topic_spam_protect_ip",

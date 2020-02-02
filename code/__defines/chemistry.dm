@@ -37,6 +37,7 @@
 #define CE_ANTITOX       "antitox"      // Dylovene
 #define CE_OXYGENATED    "oxygen"       // Dexalin.
 #define CE_BRAIN_REGEN   "brainfix"     // Alkysine.
+#define CE_THIRDEYE      "thirdeye"     // Gives xray vision.
 #define CE_ANTIVIRAL     "antiviral"    // Anti-virus effect.
 
 //reagent flags

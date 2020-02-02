@@ -263,19 +263,19 @@
 					selecting = BP_THROAT
 
 		if(53 to 60) //Head, but we need to check for eye or mouth
-			switch(icon_x) 
+			switch(icon_x)
 				if(10 to 23)
 					selecting = BP_HEAD
 		if(69 to 72)
 			switch(icon_x)
 				if(13 to 20)
 					selecting = BP_MOUTH
-		
+
 		if(77 to 81)
 			switch(icon_x)
 				if(11 to 22)
 					selecting = BP_EYES
-			
+
 
 	if(old_selecting != selecting)
 		update_icon()
@@ -479,7 +479,7 @@
 				usr.client.drop_item()
 		if("wield")
 			if(!ishuman(usr)) return
-			var/mob/living/carbon/human/HH = usr		
+			var/mob/living/carbon/human/HH = usr
 			var/obj/item/I = HH.get_active_hand()
 			if(!I)
 				return
@@ -594,10 +594,18 @@
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("r")
+				if(C.hand)
+					C.activate_hand("r")
+				else
+					C.attack_empty_hand(BP_R_HAND)
 		if("l_hand")
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
+				if(!C.hand)
+					C.activate_hand("l")
+				else
+
 		if("swap")
 			usr:swap_hand()
 		if("hand")

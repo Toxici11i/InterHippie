@@ -11,6 +11,7 @@
 /mob/living/carbon/brain/instantiate_hud(var/datum/hud/HUD)
 	return
 
+
 /mob/living/silicon/ai/instantiate_hud(var/datum/hud/HUD)
 	HUD.ai_hud()
 

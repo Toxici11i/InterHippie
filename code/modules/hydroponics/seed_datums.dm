@@ -1,3 +1,4 @@
+
 // Chili plants/variants.
 /datum/seed/chili
 	name = "chili"
