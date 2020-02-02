@@ -1,4 +1,4 @@
-#if !defined(USING_MAP_DATUM)
+#if !defined(using_map_DATUM)
 	#include "warfare_areas.dm"
 	#include "warfare_shuttles.dm"
 	#include "warfare_unit_testing.dm"
@@ -12,7 +12,7 @@
 
 	#include "../../code/modules/lobby_music/absconditus.dm"
 
-	#define USING_MAP_DATUM /datum/map/warfare
+	#define using_map_DATUM /datum/map/warfare
 
 #elif !defined(MAP_OVERRIDE)
 
