@@ -1,4 +1,4 @@
-#if !defined(USING_MAP_DATUM)
+#if !defined(using_map_DATUM)
 
 	#include "../shared/exodus_torch/_include.dm"
 
@@ -27,7 +27,7 @@
 
 	#include "../../code/modules/lobby_music/generic_songs.dm"
 
-	#define USING_MAP_DATUM /datum/map/frontier
+	#define using_map_DATUM /datum/map/frontier
 
 #elif !defined(MAP_OVERRIDE)
 
