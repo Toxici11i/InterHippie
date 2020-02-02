@@ -1,10 +1,10 @@
-var/datum/controller/subsystem/verina_controller/SSverina
+/*var/datum/controller/subsystem/verina_controller/SSverina
 
 //The main controller of verina.  Will manage a few small subsystems, and manage what they are doing based on crew input
 /datum/controller/subsystem/verina_controller
 	name = "Verina"
 	wait = 300  //30 seconds
-	priority = 20
+	priority = 10
 	flags = SS_BACKGROUND
 	var/obj/request_item = null
 	var/request_amount = -1
@@ -153,7 +153,7 @@ var/datum/controller/subsystem/verina_controller/SSverina
 /datum/punishment/tax/
 	name = "tax"
 	value = 25
-	message = "has had a lump sum removed from all station acounts."
+	message = "has had a lump sum removed from all station accounts."
 
 /datum/punishment/tax/do_punishment()
 	for(var/datum/money_account/account in all_money_accounts)
@@ -166,4 +166,4 @@ var/datum/controller/subsystem/verina_controller/SSverina
 	name = "Disable Machinary"
 	value = 35
 	message = "has had a on-board machine disabled until Verina is placated."
-	var/obj/machinery/machine_disabled = null
+	var/obj/machinery/machine_disabled = null*/

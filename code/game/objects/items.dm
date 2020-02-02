@@ -226,6 +226,7 @@
 /obj/item/weapon/twohanded/offhand
 	name = "offhand"
 	icon_state = "offhand"
+	canremove = 0
 	w_class = ITEM_SIZE_NO_CONTAINER
 	flags = ABSTRACT | NOBLOODY
 	//resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -316,18 +317,22 @@
 		var/obj/item/weapon/storage/S = loc
 		S.remove_from_storage(src)
 
-	throwing = 0
-	if (loc == user)
+	src.throwing = 0
+	if (src.loc == user)
 		if(!user.unEquip(src))
 			return
 	else
-		if(isliving(loc))
+		if(isliving(src.loc))
 			return
 
 	if(QDELETED(src))
 		return // Unequipping changes our state, so must check here.
 
+	var/old_loc = src.loc
 	if(user.put_in_active_hand(src))
+		if (isturf(old_loc))
+			var/obj/effect/temporary/item_pickup_ghost/ghost = new(old_loc, src)
+			ghost.animate_towards(user)
 		if(randpixel)
 			pixel_x = rand(-randpixel, randpixel)
 			pixel_y = rand(-randpixel/2, randpixel/2)

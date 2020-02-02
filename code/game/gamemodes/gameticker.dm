@@ -40,7 +40,6 @@ var/global/datum/controller/gameticker/ticker
 		if(!gamemode_voted)
 			pregame_timeleft = 180
 		else
-			pregame_timeleft = 15
 			if(!isnull(secondary_mode))
 				master_mode = secondary_mode
 				secondary_mode = null
@@ -70,6 +69,10 @@ var/global/datum/controller/gameticker/ticker
 							vote.process()
 			if(pregame_timeleft <= 0 || ((initialization_stage & INITIALIZATION_NOW_AND_COMPLETE) == INITIALIZATION_NOW_AND_COMPLETE))
 				current_state = GAME_STATE_SETTING_UP
+			if(pregame_timeleft <= 120 && !gamemode_voted)
+				var/datum/controller/vote/roundstart_vote = new()   // if no vote is called make it
+				roundstart_vote.initiate_vote("gamemode"," ",1)
+				gamemode_voted = 1
 				Master.SetRunLevel(RUNLEVEL_SETUP)
 
 	while (!setup())
