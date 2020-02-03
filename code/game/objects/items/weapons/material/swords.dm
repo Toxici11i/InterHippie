@@ -14,7 +14,7 @@
 	thrown_force_divisor = 0.2 // 10 when thrown with weight 20 (steel)
 	sharp = 1
 	edge = 1
-	attack_verb = list("slashed", "sliced")
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = "slash_sound"
 	var/atk_mode = SLASH
 	block_chance = 25
@@ -140,3 +140,26 @@
 		switch_intent(STAB)
 	else
 		switch_intent(SLASH)
+
+/obj/item/weapon/material/sword/modernsword
+	name = "modern sword"
+	desc = "A modern sword made out of high quality materials. Don't stab yourself."
+	icon_state = "mallninja"
+	item_state = "mallninja"
+	slot_flags = SLOT_BELT
+	w_class = ITEM_SIZE_HUGE
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	force_divisor = 0.2
+	thrown_force_divisor = 0.2
+	block_chance = 25
+	applies_material_colour = FALSE
+	hitsound = "slash_sound"
+	var/atk_mode = SLASH
+	block_chance = 25
+	drawsound = 'sound/items/unholster_sword02.ogg'
+	equipsound = 'sound/items/holster_sword1.ogg'
+	sharpness = 30
+	weapon_speed_delay = 20
+	parry_sounds = list('sound/weapons/blade_parry1.ogg', 'sound/weapons/blade_parry2.ogg', 'sound/weapons/blade_parry3.ogg')
+	sharp = 1
+	edge = 1
