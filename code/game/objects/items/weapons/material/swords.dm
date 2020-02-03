@@ -154,7 +154,6 @@
 	block_chance = 25
 	applies_material_colour = FALSE
 	hitsound = "slash_sound"
-	var/atk_mode = SLASH
 	block_chance = 25
 	drawsound = 'sound/items/unholster_sword02.ogg'
 	equipsound = 'sound/items/holster_sword1.ogg'

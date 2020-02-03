@@ -82,6 +82,15 @@
 #define COLOR_NULLGLASS        "#ff6088"
 #define COLOR_DIAMOND          "#d8d4ea"
 
+//Colors defines used by e-sword lighting
+#define COLOR_SABER_BLUE       "#40ceff"
+#define COLOR_SABER_RED        "#ff0000"	//In case someone wants to tweak COLOR_RED, since COLOR_GREEN is not #00ff00
+#define COLOR_SABER_GREEN      "#00ff00"
+#define COLOR_SABER_PURPLE     "#6800f4"
+#define COLOR_SABER_SKRELL     "#6600cc"
+#define COLOR_SABER_AXE        "#00ccff"
+#define COLOR_SABER_CUTLASS    "#ff0033"
+
 #define	PIPE_COLOR_GREY		"#ffffff"	//yes white is grey
 #define	PIPE_COLOR_RED		"#ff0000"
 #define	PIPE_COLOR_BLUE		"#0000ff"
