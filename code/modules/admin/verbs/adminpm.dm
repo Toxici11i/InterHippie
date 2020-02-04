@@ -67,7 +67,7 @@
 			else		to_chat(src, "<span class='warning'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</span>")
 			return
 
-	msg = msg
+	msg = sanitize(msg)
 
 	var/datum/client_lite/receiver_lite = client_repository.get_lite_client(C)
 	var/datum/client_lite/sender_lite = client_repository.get_lite_client(src)
