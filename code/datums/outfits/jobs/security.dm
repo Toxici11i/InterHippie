@@ -10,7 +10,7 @@
 	messenger_bag = /obj/item/weapon/storage/backpack/messenger/sec
 
 /decl/hierarchy/outfit/job/security/hos
-	name = OUTFIT_JOB_NAME("Head of security")
+	name = OUTFIT_JOB_NAME("Head of Security")
 	l_ear = /obj/item/device/radio/headset/heads/hos
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	id_type = /obj/item/weapon/card/id/security/head

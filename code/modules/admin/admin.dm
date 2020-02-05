@@ -711,7 +711,7 @@ var/global/floorIsLava = 0
 	if(!check_rights(0))	return
 
 	var/message = russian_to_cp1251(input("Global message to send:", "Admin Announce", null, null) as message)
-	message = sanitize(message, 500, extra = 0)
+	message = (message)
 	if(message)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
 		to_world("<span class=notice><b>[usr.key] Announces:</b><p style='text-indent: 50px'>[message]</p></span>")

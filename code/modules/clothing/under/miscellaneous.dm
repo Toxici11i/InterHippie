@@ -192,7 +192,7 @@
 	worn_state = "black_suit"
 
 /obj/item/clothing/under/suit_jacket/female
-	name = "executive suit"
+	name = "female executive suit"
 	desc = "A formal trouser suit for women, intended for the galaxy's finest."
 	icon_state = "black_suit_fem"
 	item_state = "lawyer_black"
@@ -213,13 +213,13 @@
 	worn_state = "blackskirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/under/schoolgirl
+/*/obj/item/clothing/under/schoolgirl
 	name = "schoolgirl uniform"
 	desc = "It's just like one of my Japanese animes!"
 	icon_state = "schoolgirl"
 	item_state = "b_suit"
 	worn_state = "schoolgirl"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO*/
 
 /obj/item/clothing/under/overalls
 	name = "laborer's overalls"
@@ -467,14 +467,14 @@
 	worn_state = "captain_formal"
 
 /obj/item/clothing/under/hosformalmale
-	name = "head of security's formal uniform"
+	name = "male head of security's formal uniform"
 	desc = "A male head of security's formal-wear, for special occasions."
 	icon_state = "hos_formal_male"
 	item_state = "r_suit"
 	worn_state = "hos_formal_male"
 
 /obj/item/clothing/under/hosformalfem
-	name = "head of security's formal uniform"
+	name = "female head of security's formal uniform"
 	desc = "A female head of security's formal-wear, for special occasions."
 	icon_state = "hos_formal_fem"
 	item_state = "r_suit"
