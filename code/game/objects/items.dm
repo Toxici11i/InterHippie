@@ -94,7 +94,7 @@
 	var/force_wielded = 0
 
 
-/obj/item/New()
+/obj/item/Initialize()
 	..()
 	if(!swing_sound)
 		if(sharp || edge)
