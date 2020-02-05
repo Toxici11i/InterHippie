@@ -38,7 +38,7 @@
 		force = force_unwielded
 		name = "[base_name]"
 	update_icon()
-	..()
+	. = ..()
 
 /obj/item/weapon/material/twohanded/update_force()
 	base_name = name
@@ -53,8 +53,8 @@
 //	log_debug("[src] has unwielded force [force_unwielded], wielded force [force_wielded] and throwforce [throwforce] when made from default material [material.name]")
 
 
-/obj/item/weapon/material/twohanded/New()
-	..()
+/obj/item/weapon/material/twohanded/Initialize()
+	. = ..()
 	update_icon()
 
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
@@ -69,6 +69,12 @@
 	icon_state = "[base_icon][wielded]"
 	item_state_slots[slot_l_hand_str] = icon_state
 	item_state_slots[slot_r_hand_str] = icon_state
+
+/obj/item/weapon/material/twohanded/dropped()
+	. = ..()
+	loc = null
+	if(!QDELETED(src))
+		qdel(src)
 
 /*
  * Fireaxe
