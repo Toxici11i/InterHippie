@@ -37,11 +37,13 @@
 	icon_state = "id_hos"
 	job_access_type = /datum/job/hos
 
-
 /obj/item/weapon/card/id/dreyfus/sec
 	icon_state = "id_sec"
 	job_access_type = /datum/job/officer
 
+/obj/item/weapon/card/id/dreyfus/det
+	icon_state = "id_sec"
+	job_access_type = /datum/job/detective
 
 /obj/item/weapon/card/id/dreyfus/rd
 	icon_state = "id_rd"
