@@ -7,6 +7,7 @@
 						/datum/job/doctor/undertaker,
 						/datum/job/medassist,
 						/datum/job/hos,
+						/datum/job/detective,
 						/datum/job/officer,
 						///datum/job/ai,
 						/datum/job/cadet,
@@ -39,6 +40,7 @@
 						/datum/job/doctor/undertaker,
 						/datum/job/medassist,
 						/datum/job/hos,
+						/datum/job/detective,
 						/datum/job/officer,
 						/datum/job/cadet,
 						/datum/job/qm,
@@ -71,6 +73,7 @@
 						/datum/job/doctor/undertaker,
 						/datum/job/medassist,
 						/datum/job/hos,
+						/datum/job/detective,
 						/datum/job/officer,
 						/datum/job/cadet,
 						/datum/job/qm,
@@ -101,7 +104,7 @@
 	ideal_character_age = 21
 	alt_titles = null
 	social_class = SOCIAL_CLASS_MIN
-	total_positions = 0
+	total_positions = 10
 	spawn_positions = 0
 
 	equip(var/mob/living/carbon/human/H)
@@ -120,7 +123,7 @@
 
 	equip(var/mob/living/carbon/human/H)
 		..()
-		H.add_stats(rand(6,9), rand(9,11), rand(10,12))
+		H.add_stats(rand(9,12), rand(11,13), rand(10,12))
 
 
 
@@ -137,7 +140,7 @@
 
 	equip(var/mob/living/carbon/human/H)
 		..()
-		H.add_stats(rand(6,9), rand(9,11), rand(10,12))
+		H.add_stats(rand(8,10), rand(9,11), rand(10,12))
 
 /datum/job/employe
 	title = "Employee Administrator" //hops assistant basically
@@ -197,7 +200,7 @@
 
 	equip(var/mob/living/carbon/human/H)
 		..()
-		H.add_stats(rand(5,7), rand(5,8), rand(10,14))
+		H.add_stats(rand(6,8), rand(6,8), rand(10,14))
 		H.add_skills(rand(25, 50), rand(25,50), rand(65, 75))
 
 /datum/job/doctor
@@ -273,6 +276,25 @@
 		..()
 		H.add_stats(rand(11,16), rand(10,14), rand(7,10))
 		H.add_skills(rand(60, 75), rand(60,75))
+
+/datum/job/detective
+	title = "Detective"
+	department = "Security"
+	department_flag = SEC
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	economic_modifier = 3
+	access = list(access_security, access_eva, access_sec_doors, access_maint_tunnels, access_morgue, access_external_airlocks, access_detoffice)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_detoffice)
+	minimal_player_age = 0
+	outfit_type = /decl/hierarchy/outfit/job/security/detective
+
+	equip(var/mob/living/carbon/human/H)
+		..()
+		H.add_stats(rand(11,16), rand(10,14), rand(7,10))
+		H.add_skills(rand(60, 75), rand(60,75))
+
 
 
 /datum/job/qm

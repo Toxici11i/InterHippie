@@ -58,7 +58,6 @@
 					/obj/item/clothing/accessory/suspenders,
 					/obj/item/clothing/suit/storage/toggle/labcoat/mad,
 					/obj/item/clothing/suit/bio_suit/plaguedoctorsuit,
-					/obj/item/clothing/under/schoolgirl,
 					/obj/item/clothing/under/owl,
 					/obj/item/clothing/under/waiter,
 					/obj/item/clothing/under/gladiator,
@@ -252,4 +251,4 @@
 	name = "\improper Pest Control Crate"
 	cost = 10
 	containername = "\improper Pest Control Crate"
-	
+
