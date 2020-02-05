@@ -2,7 +2,7 @@
 	set category = "IC"
 	set name = "Pray"
 
-	msg = sanitize(msg)
+	msg = (msg)
 	if(!msg)	return
 
 	if(usr.client)
