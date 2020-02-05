@@ -277,7 +277,7 @@
 		H.add_stats(rand(11,16), rand(10,14), rand(7,10))
 		H.add_skills(rand(60, 75), rand(60,75))
 
-/*/datum/job/detective
+/datum/job/detective
 	title = "Detective"
 	department = "Security"
 	department_flag = SEC
@@ -285,8 +285,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	economic_modifier = 3
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_detoffice)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_detoffice)
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks)
 	minimal_player_age = 0
 	outfit_type = /decl/hierarchy/outfit/job/security/detective
 
