@@ -39,8 +39,8 @@
 	simulated = 0
 
 
-/obj/item/weapon/grab/New(mob/user, mob/victim)
-	..()
+/obj/item/weapon/grab/Initialize(mob/user, mob/victim)
+	. = ..()
 	loc = user
 	assailant = user
 	affecting = victim
@@ -84,6 +84,26 @@
 			return affected
 	return null
 
+/obj/item/weapon/grab/dropped()
+	. = ..()
+	loc = null
+	if(!QDELETED(src))
+		QDEL(src)
+
+/obj/item/weapon/grab/Destroy()
+	if(affecting)
+		reset_position()
+		affecting.grabbed_by -= src
+		affecting.reset_plane_and_layer()
+		affecting = null
+	if(assailant)
+		if(assailant.client)
+			assailant.client.screen -= hud
+		assailant = null
+	QDEL(hud)
+	hud = null
+	return . = ..()
+
 
 //This makes sure that the grab screen object is displayed in the correct hand.
 /obj/item/weapon/grab/proc/synch() //why is this needed?
@@ -103,7 +123,7 @@
 		return PROCESS_KILL	//qdel'd in confirm.
 
 	if(!assailant)
-		qdel(src) // Same here, except we're trying to delete ourselves.
+		QDEL(src) // Same here, except we're trying to delete ourselves.
 		return PROCESS_KILL
 
 	if(assailant.client)
@@ -393,12 +413,6 @@
 		if(assailant.devour(affecting))
 			qdel(src)
 
-/obj/item/weapon/grab/dropped()
-	..()
-	loc = null
-	if(!QDELETED(src))
-		qdel(src)
-
 /obj/item/weapon/grab/proc/reset_kill_state()
 	if(!assailant)
 		qdel(src)
@@ -459,17 +473,3 @@
 //returns the number of size categories between affecting and assailant, rounded. Positive means A is larger than B
 /obj/item/weapon/grab/proc/size_difference(mob/A, mob/B)
 	return mob_size_difference(A.mob_size, B.mob_size)
-
-/obj/item/weapon/grab/Destroy()
-	if(affecting)
-		reset_position()
-		affecting.grabbed_by -= src
-		affecting.reset_plane_and_layer()
-		affecting = null
-	if(assailant)
-		if(assailant.client)
-			assailant.client.screen -= hud
-		assailant = null
-	qdel(hud)
-	hud = null
-	return ..()
