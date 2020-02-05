@@ -36,6 +36,19 @@
 /obj/item/ammo_magazine/c45m/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/c05m
+	name = "magazine (c05)"
+	icon_state = "45"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c05
+	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
+	caliber = ".45"
+	max_ammo = 14
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c05m/empty
+	initial_ammo = 0
+
 /obj/item/ammo_magazine/c45m/rubber
 	name = "magazine (.45 rubber)"
 	ammo_type = /obj/item/ammo_casing/c45/rubber

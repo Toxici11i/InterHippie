@@ -153,6 +153,30 @@
 	icon_state = "silencer"
 	w_class = ITEM_SIZE_SMALL
 
+/obj/item/weapon/gun/projectile/c05
+	name = "C-05 Automatic Pistol"
+	desc = "The C-05 Autopistol is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Can fire semi-auto or 3 rounds at once."
+	icon = 'icons/obj/gun.dmi'
+	icon_state = "c05r"
+	magazine_type = /obj/item/ammo_magazine/c05m
+	allowed_magazines = /obj/item/ammo_magazine/c05m
+	caliber = ".45"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	load_method = MAGAZINE
+	max_shells = 14
+	multi_aim = 1
+	burst_delay = 2
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, one_hand_penalty=0, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    one_hand_penalty=1, burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
+		)
+
+/obj/item/weapon/gun/projectile/c05/update_icon()
+	..()
+	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
+		icon_state = "[icon_state]-e"
+
 /obj/item/weapon/gun/projectile/pirate
 	name = "zip gun"
 	desc = "Little more than a barrel, handle, and firing mechanism, cheap makeshift firearms like this one are not uncommon in frontier systems."
