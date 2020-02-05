@@ -202,7 +202,7 @@
 	..()
 	M.hallucination = max(M.hallucination, 2)
 	M.druggy = max(M.druggy, 10)
-	M.adjustToxLoss(3 * removed)
+	M.adjustToxLoss(3)
 	M.AdjustWeakened(1)
 
 /datum/reagent/tramadol
@@ -224,7 +224,7 @@
 	..()
 	M.hallucination = max(M.hallucination, 2)
 	M.druggy = max(M.druggy, 10)
-	M.adjustToxLoss(5 * removed)
+	M.adjustToxLoss(5)
 	M.AdjustWeakened(1)
 
 /datum/reagent/oxycodone
@@ -245,7 +245,7 @@
 	..()
 	M.druggy = max(M.druggy, 10)
 	M.hallucination = max(M.hallucination, 3)
-	M.adjustToxLoss(10 * removed)
+	M.adjustToxLoss(10)
 	M.AdjustWeakened(1)
 
 /* Other medicine */
