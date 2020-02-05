@@ -247,8 +247,8 @@
 	taste_description = "acid"
 	reagent_state = LIQUID
 	color = "#8E18A9"
-	power = 10
-	meltdose = 4
+	power = 5
+	meltdose = 2
 
 /datum/reagent/lexorin
 	name = "Lexorin"
@@ -365,8 +365,8 @@
 	taste_description = "bitterness"
 	reagent_state = SOLID
 	color = "#000067"
-	metabolism = REM * 0.5
-	overdose = REAGENTS_OVERDOSE * 0.5
+	metabolism = REM * 0.3
+	overdose = REAGENTS_OVERDOSE * 10
 
 /datum/reagent/chloralhydrate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -379,7 +379,7 @@
 	if(dose == metabolism * threshold)
 		M.confused += 2
 		M.drowsyness += 2
-	else if(dose < 2 * threshold)
+	else if(dose < 15 * threshold)
 		M.Weaken(30)
 		M.eye_blurry = max(M.eye_blurry, 10)
 	else

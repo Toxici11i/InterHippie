@@ -190,17 +190,20 @@
 	taste_description = "sickness"
 	reagent_state = LIQUID
 	color = "#C8A5DC"
-	overdose = 60
+	overdose = 20
 	scannable = 1
 	metabolism = 0.02
 	flags = IGNORE_MOB_SIZE
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_PAINKILLER, 25)
+	M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.hallucination = max(M.hallucination, 2)
+	M.druggy = max(M.druggy, 10)
+	M.adjustToxLoss(3 * removed)
+	M.AdjustWeakened(1)
 
 /datum/reagent/tramadol
 	name = "Tramadol"
@@ -209,17 +212,20 @@
 	taste_description = "sourness"
 	reagent_state = LIQUID
 	color = "#CB68FC"
-	overdose = 30
+	overdose = 10
 	scannable = 1
 	metabolism = 0.02
 	flags = IGNORE_MOB_SIZE
 
 /datum/reagent/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_PAINKILLER, 80)
+	M.add_chemical_effect(CE_PAINKILLER, 30)
 
 /datum/reagent/tramadol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.hallucination = max(M.hallucination, 2)
+	M.druggy = max(M.druggy, 10)
+	M.adjustToxLoss(5 * removed)
+	M.AdjustWeakened(1)
 
 /datum/reagent/oxycodone
 	name = "Oxycodone"
@@ -228,17 +234,19 @@
 	taste_description = "bitterness"
 	reagent_state = LIQUID
 	color = "#800080"
-	overdose = 20
+	overdose = 5
 	metabolism = 0.02
 	flags = IGNORE_MOB_SIZE
 
 /datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_PAINKILLER, 200)
+	M.add_chemical_effect(CE_PAINKILLER, 60)
 
 /datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.druggy = max(M.druggy, 10)
 	M.hallucination = max(M.hallucination, 3)
+	M.adjustToxLoss(10 * removed)
+	M.AdjustWeakened(1)
 
 /* Other medicine */
 
