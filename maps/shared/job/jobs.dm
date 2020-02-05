@@ -285,7 +285,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	economic_modifier = 3
-	access = list(access_security, access_eva, access_sec_doors, access_maint_tunnels, access_morgue, access_external_airlocks, access_detoffice)
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_detoffice)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_detoffice)
 	minimal_player_age = 0
 	outfit_type = /decl/hierarchy/outfit/job/security/detective
