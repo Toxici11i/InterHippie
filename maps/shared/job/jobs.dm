@@ -7,7 +7,7 @@
 						/datum/job/doctor/undertaker,
 						/datum/job/medassist,
 						/datum/job/hos,
-						/datum/job/detective,
+						///datum/job/detective,
 						/datum/job/officer,
 						///datum/job/ai,
 						/datum/job/cadet,
