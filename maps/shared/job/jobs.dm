@@ -277,7 +277,7 @@
 		H.add_stats(rand(11,16), rand(10,14), rand(7,10))
 		H.add_skills(rand(60, 75), rand(60,75))
 
-/datum/job/detective
+/*/datum/job/detective
 	title = "Detective"
 	department = "Security"
 	department_flag = SEC
@@ -293,8 +293,7 @@
 	equip(var/mob/living/carbon/human/H)
 		..()
 		H.add_stats(rand(11,16), rand(10,14), rand(7,10))
-		H.add_skills(rand(60, 75), rand(60,75))
-
+		H.add_skills(rand(60, 75), rand(60,75))*/
 
 
 /datum/job/qm
