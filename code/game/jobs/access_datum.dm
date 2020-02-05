@@ -34,7 +34,7 @@
 	desc = "Forensics"
 	region = ACCESS_REGION_SECURITY
 
-/var/const/detoffice = 5
+/var/const/access_detoffice = 5
 /datum/access/detoffice
 	id = access_detoffice
 	desc = "Detective's Office"
