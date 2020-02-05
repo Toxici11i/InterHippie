@@ -335,7 +335,7 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/weapon/card/id/security/warden
 	job_access_type = /datum/job/warden
 
-/obj/item/weapon/card/id/detective
+/obj/item/weapon/card/id/security/detective
 	name = "identification card"
 	desc = "A card issued to detectives."
 	icon_state = "sec"
