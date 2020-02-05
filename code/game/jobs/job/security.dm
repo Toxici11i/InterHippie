@@ -42,7 +42,7 @@
 	minimal_player_age = 7
 	outfit_type = /decl/hierarchy/outfit/job/security/warden
 
-/datum/job/detective
+/*/datum/job/detective
 	title = "Detective"
 	department = "Security"
 	department_flag = SEC
@@ -56,7 +56,7 @@
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_detoffice)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_detoffice)
 	minimal_player_age = 7
-	outfit_type = /decl/hierarchy/outfit/job/security/detective
+	outfit_type = /decl/hierarchy/outfit/job/security/detective*/
 
 /datum/job/officer
 	title = "Security Officer"
