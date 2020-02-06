@@ -17,7 +17,6 @@
 
 /obj/item/weapon/grab
 	name = "grab"
-	canremove = 0
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "reinforce"
 	flags = 0
@@ -40,7 +39,7 @@
 
 
 /obj/item/weapon/grab/Initialize(mob/user, mob/victim)
-	. = ..()
+	..()
 	loc = user
 	assailant = user
 	affecting = victim
@@ -83,26 +82,6 @@
 			qdel(src)
 			return affected
 	return null
-
-/obj/item/weapon/grab/dropped()
-	. = ..()
-	loc = null
-	if(!QDELETED(src))
-		qdel(src)
-
-/obj/item/weapon/grab/Destroy()
-	if(affecting)
-		reset_position()
-		affecting.grabbed_by -= src
-		affecting.reset_plane_and_layer()
-		affecting = null
-	if(assailant)
-		if(assailant.client)
-			assailant.client.screen -= hud
-		assailant = null
-	qdel(hud)
-	hud = null
-	return . = ..()
 
 
 //This makes sure that the grab screen object is displayed in the correct hand.
@@ -173,7 +152,7 @@
 				affecting.Weaken(2)
 
 	if(state >= GRAB_NECK)
-		affecting.Weaken(3)
+		affecting.Stun(3)
 		if(isliving(affecting))
 			var/mob/living/L = affecting
 			L.adjustOxyLoss(1)
@@ -413,6 +392,12 @@
 		if(assailant.devour(affecting))
 			qdel(src)
 
+/obj/item/weapon/grab/dropped()
+	..()
+	loc = null
+	if(!QDELETED(src))
+		qdel(src)
+
 /obj/item/weapon/grab/proc/reset_kill_state()
 	if(!assailant)
 		qdel(src)
@@ -473,3 +458,17 @@
 //returns the number of size categories between affecting and assailant, rounded. Positive means A is larger than B
 /obj/item/weapon/grab/proc/size_difference(mob/A, mob/B)
 	return mob_size_difference(A.mob_size, B.mob_size)
+
+/obj/item/weapon/grab/Destroy()
+	if(affecting)
+		reset_position()
+		affecting.grabbed_by -= src
+		affecting.reset_plane_and_layer()
+		affecting = null
+	if(assailant)
+		if(assailant.client)
+			assailant.client.screen -= hud
+		assailant = null
+	qdel(hud)
+	hud = null
+	return ..()
