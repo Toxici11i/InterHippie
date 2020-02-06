@@ -5,16 +5,17 @@
 	var/mob/user
 	var/client/client
 
-/datum/progressbar/New(mob/user, goal_number, atom/target)
+/datum/progressbar/Initialize(mob/user, goal_number, atom/target)
 	. = ..()
 	if(!target) target = user
-	if (!istype(target))
+	if(!istype(target))
 		EXCEPTION("Invalid target given")
-	if (goal_number)
+	if(goal_number)
 		goal = goal_number
-	bar = image('icons/effects/progessbar.dmi', target, "prog_bar_0")
-	bar.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+	bar = image('icons/effects/progessbar.dmi', target, "prog_bar_0", HUD_ABOVE_ITEM_LAYER)
+	bar.alpha = 0
 	bar.plane = HUD_PLANE
+	bar.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	bar.layer = HUD_ABOVE_ITEM_LAYER
 	bar.pixel_y = WORLD_ICON_SIZE
 	src.user = user
