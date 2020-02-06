@@ -11,7 +11,7 @@ proc/explosion_rec(turf/epicenter, power, shaped)
 	var/loopbreak = 0
 	while(explosion_in_progress)
 		if(loopbreak >= 15) return
-		sleep(10)
+		sleep(5)
 		loopbreak++
 
 	if(power <= 0) return
@@ -44,7 +44,7 @@ proc/explosion_rec(turf/epicenter, power, shaped)
 		if(!T) continue
 
 		//Wow severity looks confusing to calculate... Fret not, I didn't leave you with any additional instructions or help. (just kidding, see the line under the calculation)
-		var/severity = 4 - round(max(min( 3, ((explosion_turfs[T] - T.explosion_resistance) / (max(3,(power/3)))) ) ,1), 1)								//sanity			effective power on tile				divided by either 3 or one third the total explosion power
+		var/severity = 4 - round(max(min( 3, ((explosion_turfs[T] - T.get_explosion_resistance()) / (max(3,(power/3)))) ) ,1), 1)								//sanity			effective power on tile				divided by either 3 or one third the total explosion power
 								//															One third because there are three power levels and I
 								//															want each one to take up a third of the crater
 		var/x = T.x
@@ -58,7 +58,7 @@ proc/explosion_rec(turf/epicenter, power, shaped)
 			if(AM && AM.simulated)	AM.ex_act(severity)
 
 	explosion_turfs.Cut()
-	explosion_in_progress = 0
+	explosion_in_progress = FALSE
 
 
 //Code-wise, a safe value for power is something up to ~25 or ~30.. This does quite a bit of damage to the station.
@@ -70,12 +70,12 @@ proc/explosion_rec(turf/epicenter, power, shaped)
 	if(explosion_turfs[src] >= power)
 		return //The turf already sustained and spread a power greated than what we are dealing with. No point spreading again.
 	explosion_turfs[src] = power
-
-/*	sleep(2)
+/*
+	sleep(2)
 	var/obj/effect/debugging/M = locate() in src
 	if (!M)
 		M = new(src, power, direction)
-	M.maptext = "[power]"
+	M.maptext = "[power] vs [src.get_explosion_resistance()]""
 	if(power > 10)
 		M.color = "#CCCC00"
 	if(power > 20)
@@ -96,14 +96,23 @@ proc/explosion_rec(turf/epicenter, power, shaped)
 	if(T)
 		T.explosion_spread(spread_power, turn(direction,90))
 
-/turf/unsimulated/explosion_spread(power)
-	return //So it doesn't get to the parent proc, which simulates explosions
+/atom/var/explosion_resistance
+/atom/proc/get_explosion_resistance()
+	if(simulated)
+		return explosion_resistance
 
-/obj/var/explosion_resistance
-/turf/var/explosion_resistance
+/turf/get_explosion_resistance()
+	. = ..()
+	for(var/obj/O in src)
+		. += O.get_explosion_resistance()
 
 /turf/space
 	explosion_resistance = 3
+
+/turf/simulated/floor/get_explosion_resistance()
+	. = ..()
+	if(is_below_sound_pressure(src))
+		. *= 3
 
 /turf/simulated/floor
 	explosion_resistance = 1
@@ -116,3 +125,9 @@ proc/explosion_rec(turf/epicenter, power, shaped)
 
 /turf/simulated/wall
 	explosion_resistance = 10
+
+/obj/machinery/door/get_explosion_resistance()
+	if(!density)
+		return 0
+	else
+		return ..()

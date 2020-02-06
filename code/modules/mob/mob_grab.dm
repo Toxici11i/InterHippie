@@ -88,7 +88,7 @@
 	. = ..()
 	loc = null
 	if(!QDELETED(src))
-		QDEL(src)
+		qdel(src)
 
 /obj/item/weapon/grab/Destroy()
 	if(affecting)
@@ -100,7 +100,7 @@
 		if(assailant.client)
 			assailant.client.screen -= hud
 		assailant = null
-	QDEL(hud)
+	qdel(hud)
 	hud = null
 	return . = ..()
 
@@ -123,7 +123,7 @@
 		return PROCESS_KILL	//qdel'd in confirm.
 
 	if(!assailant)
-		QDEL(src) // Same here, except we're trying to delete ourselves.
+		qdel(src) // Same here, except we're trying to delete ourselves.
 		return PROCESS_KILL
 
 	if(assailant.client)
