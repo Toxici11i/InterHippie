@@ -5,7 +5,7 @@
 	var/mob/user
 	var/client/client
 
-/datum/progressbar/Initialize(mob/user, goal_number, atom/target)
+/datum/progressbar/New(mob/user, goal_number, atom/target)
 	. = ..()
 	if(!target) target = user
 	if(!istype(target))
