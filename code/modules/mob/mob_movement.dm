@@ -231,7 +231,6 @@
 					if(item.zoom)
 						item.zoom(mob)
 						break
-				/*
 				if(locate(/obj/item/weapon/gun/energy/sniperrifle, mob.contents))		// If mob moves while zoomed in with sniper rifle, unzoom them.
 					var/obj/item/weapon/gun/energy/sniperrifle/s = locate() in mob
 					if(s.zoom)
@@ -240,7 +239,6 @@
 					var/obj/item/device/binoculars/b = locate() in mob
 					if(b.zoom)
 						b.zoom()
-				*/
 
 
 
