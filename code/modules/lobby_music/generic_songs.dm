@@ -38,6 +38,13 @@
 	has_info = 0
 	song = 'sound/music/lobby10.ogg'
 
+/lobby_music/lobby11
+	has_info = 0
+	song = 'sound/music/lobby11.ogg'
+
+/lobby_music/lobby12
+	has_info = 0
+	song = 'sound/music/lobby12.ogg'
 
 //those will be last
 //pranked
