@@ -70,12 +70,6 @@
 	item_state_slots[slot_l_hand_str] = icon_state
 	item_state_slots[slot_r_hand_str] = icon_state
 
-/obj/item/weapon/material/twohanded/dropped()
-	. = ..()
-	loc = null
-	if(!QDELETED(src))
-		qdel(src)
-
 /*
  * Fireaxe
  */
