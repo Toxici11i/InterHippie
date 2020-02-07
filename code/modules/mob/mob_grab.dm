@@ -38,7 +38,7 @@
 	simulated = 0
 
 
-/obj/item/weapon/grab/Initialize(mob/user, mob/victim)
+/obj/item/weapon/grab/New(mob/user, mob/victim)
 	..()
 	loc = user
 	assailant = user
