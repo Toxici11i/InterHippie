@@ -100,9 +100,6 @@
 	return 0
 
 /mob/living/carbon/human/make_rune(var/rune, var/cost, var/tome_required)
-	if(should_have_organ(BP_HEART) && vessel && !vessel.has_reagent(/datum/reagent/blood, species.blood_volume * 0.7))
-		to_chat(src, "<span class='danger'>You are too weak to draw runes.</span>")
-		return
 	..()
 
 /mob/proc/pay_for_rune(var/blood)
