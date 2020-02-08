@@ -61,11 +61,12 @@
 	name = "nailed stick"
 	desc = "Stick with some nails in it. Looks sharp enough."
 	icon_state = "hm_spikeclub"
-	item_state = "hm_spikeclub"
-	force = 15
-	throwforce = 15
-	w_class = ITEM_SIZE_NORMAL
+	item_state = "club"
+	force = 12
+	throwforce = 8
+	w_class = ITEM_SIZE_LARGE
 	block_chance = 20
 	origin_tech = list(TECH_COMBAT = 2)
 	attack_verb = list("beaten", "slammed", "smacked", "struck", "battered")
 	//structure_damage_factor = STRUCTURE_DAMAGE_HEAVY
+	slot_flags = SLOT_BACK
