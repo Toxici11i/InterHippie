@@ -56,7 +56,7 @@
 	name = "canister"
 	result = list(/obj/machinery/portable_atmospherics/canister/empty = 1)
 	tools = list(/obj/item/weapon/weldingtool = 1)
-	parts = list(MATERIAL_WOOD_TYPE  = 1)
+	parts = list(MATERIAL_STEEL_TYPE  = 20)
 
 /datum/crafting_recipe/misc/cannon_frame
 	name = "cannon frame"
