@@ -1,43 +1,3 @@
-/mob/living/carbon/human/verb/craft()
-	set name = "Craft Items"
-	set category = "IC"
-
-	if(stat) //zombie goasts pls go
-		return
-
-	if(!crafting_recipes)
-		return
-
-	var/dat = ""
-	var/turf/spot = get_step(src, dir)
-	if(!spot.Adjacent(src))
-		src << "<span class='warning'>You need more space to work.</span>"
-		return
-	for(var/name in crafting_recipes)
-		var/datum/crafting_recipe/R = crafting_recipes[name]
-		if(R.can_make(src, spot))
-			dat += "<A href='?src=\ref[src];craft=[name]'>[R.name]</A> "
-			dat += "Parts: "
-			var/list/parts = list()
-			for(var/T in R.parts)
-				var/atom/A = T
-				parts += "[initial(A.name)] x[R.parts[T]]"
-			dat += english_list(parts)
-			if(R.tools)
-				dat+= ". Tools needed: "
-				var/list/tools = list()
-				for(var/T in R.tools)
-					var/atom/A = T
-					tools += "[initial(A.name)]"
-				dat += english_list(tools)
-			dat += ".<br>"
-	if(!dat)
-		src << "<span class='notice'>You can't think of anything you can make with what you have in here.</span>"
-		return
-	var/datum/browser/popup = new(src, "craft", "Craft", 300, 300)
-	popup.set_content(dat)
-	popup.open()
-
 /datum/crafting_recipe
 	var/name = "" 			//in-game display name
 	var/list/parts 			//type paths of items consumed associated with how many are needed
@@ -46,6 +6,7 @@
 
 	var/time = 0 			//time in 1/10th of second
 	var/base_chance = 100 	//base chance to get it right without skills
+	var/category = "Misc"
 
 /datum/crafting_recipe/proc/check_parts(var/list/things)
 	if(!parts)
@@ -104,7 +65,13 @@
 
 /datum/crafting_recipe/proc/can_make(var/mob/user, var/turf/spot)
 	var/list/things = spot.contents + user.contents
-	return check_parts(things) && check_tools(things)
+	if (!check_tools(things))
+		to_chat(user, "You are missing the tools required.")
+		return 0
+	if (!check_parts(things))
+		to_chat(user, "You are missing the parts required.")
+		return 0
+	return 1
 
 /datum/crafting_recipe/proc/make(var/mob/user, var/turf/spot)
 	if(!can_make(user,spot))
@@ -122,3 +89,27 @@
 			user << "<span class='notice'>You make \a [name].</span>"
 		else
 			user << "<span class='warning'>You've failed to make \a [name].</span>"
+
+/datum/crafting_recipe/proc/get_description()
+	. = list()
+	var/atom/A = result[1]
+	.+="[initial(A.desc)]<br>"
+	return jointext(., "<br>")
+
+/datum/crafting_recipe/proc/get_ingredients()
+	var/list/ingredients = list()
+	for (var/part in parts)
+		var/atom/A = new part
+		ingredients += "[A.name] x [parts[part]]"  //This is to make lists of <Part>x<amount> without needing processing later
+		qdel(A)
+	var/return_text = jointext(ingredients, ", ")
+	return return_text
+
+/datum/crafting_recipe/proc/get_tools()
+	var/list/required_tools = list()
+	for (var/tool in tools)
+		var/atom/A = new tool
+		required_tools += "[A.name]"  //This is to make lists of <Part>x<amount> without needing processing later
+		qdel(A)
+	var/return_text = jointext(required_tools,", ")
+	return return_text

@@ -54,6 +54,7 @@
 		use(1)
 
 	M.updatehealth()
+	
 /obj/item/stack/medical/bruise_pack
 	name = "roll of gauze"
 	singular_name = "gauze length"
@@ -61,6 +62,12 @@
 	icon_state = "brutepack"
 	origin_tech = list(TECH_BIO = 1)
 	animal_heal = 5
+
+/obj/item/stack/medical/bruise_pack/handmade
+	name = "non sterile bandage"
+	singular_name = "non sterile bandage"
+	desc = "Parts of clothes that can be wrapped around bloody stumps."
+	icon_state = "hm_brutepack"
 
 /obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())

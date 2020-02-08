@@ -107,7 +107,7 @@ AngleToHue(hue)
     Converts an angle to a hue in the valid range.
 RotateHue(hsv, angle)
     Takes an HSV or HSVA value and rotates the hue forward through red, green, and blue by an angle from 0 to 360.
-    (Rotating red by 60° produces yellow.) The result is another HSV or HSVA color with the same saturation and value
+    (Rotating red by 60ï¿½ produces yellow.) The result is another HSV or HSVA color with the same saturation and value
     as the original, but a different hue.
 GrayScale(rgb)
     Takes an RGB or RGBA color and converts it to grayscale. Returns an RGB or RGBA string.
@@ -636,6 +636,15 @@ The _flatIcons list is a cache for generated icon files.
 */
 
 proc // Creates a single icon from a given /atom or /image.  Only the first argument is required.
+	getFlatTypeIcon(var/path, defdir=2, deficon=null, defstate="", defblend=BLEND_DEFAULT, always_use_defdir = 0)
+		if(GLOB.initialTypeIcon[path])
+			return GLOB.initialTypeIcon[path]
+		else
+			var/atom/A = new path()
+			GLOB.initialTypeIcon[path] = getFlatIcon(A, defdir, deficon, defstate, defblend, always_use_defdir)
+			qdel(A)
+			return GLOB.initialTypeIcon[path]
+
 	getFlatIcon(image/A, defdir=2, deficon=null, defstate="", defblend=BLEND_DEFAULT, always_use_defdir = 0)
 		// We start with a blank canvas, otherwise some icon procs crash silently
 		var/icon/flat = icon('icons/effects/effects.dmi', "icon_state"="nothing") // Final flattened icon
