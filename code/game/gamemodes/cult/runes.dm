@@ -117,8 +117,9 @@
 	if(!cult.can_become_antag(target.mind, 1))
 		to_chat(target, "<span class='danger'>Are you going insane?</span>")
 	else
-		to_chat(target, "<span class='cult'>Do you want to join the cult of Nar'Sie? You can choose to ignore offer... <a href='?src=\ref[src];join=1'>Join the cult</a>.</span>")
+		cult.add_antagonist(target.mind, ignore_role = 1, do_not_equip = 1)
 
+/*We don't want this anymore.
 	spamcheck = 1
 	spawn(40)
 		spamcheck = 0
@@ -137,12 +138,11 @@
 					if(75 to 100)
 						to_chat(target, "<span class='cult'>Your mind turns to ash as the burning flames engulf your very soul and images of an unspeakable horror begin to bombard the last remnants of mental resistance.</span>")
 						target.take_overall_damage(0, 10)
-
 /obj/effect/rune/convert/Topic(href, href_list)
 	if(href_list["join"])
 		if(usr.loc == loc && !iscultist(usr))
 			cult.add_antagonist(usr.mind, ignore_role = 1, do_not_equip = 1)
-
+*/
 /obj/effect/rune/teleport
 	cultname = "teleport"
 	var/destination
@@ -342,8 +342,8 @@
 			return
 		else if(user.loc != get_turf(src) && soul)
 			soul.reenter_corpse()
-		else
-			user.take_organ_damage(0, 1)
+		else if(cult.cult_rating < CULT_RUNES_2)
+			user.take_organ_damage(0, 0.5)
 		sleep(20)
 	fizzle(user)
 
@@ -437,38 +437,19 @@
 			var/mob/living/carbon/human/H = victim
 			if(H.is_asystole())
 				H.adjustBrainLoss(2 + casters.len)
-		sleep(40)
+		sleep(2 SECONDS)
 	if(victim && victim.loc == T && victim.stat == DEAD)
 		cult.add_cultiness(CULTINESS_PER_SACRIFICE)
 		var/obj/item/device/soulstone/full/F = new(get_turf(src))
 		for(var/mob/M in cultists | get_cultists())
-			to_chat(M, "<span class='warning'>The Geometer of Blood accepts this offering.</span>")
+			to_chat(M, "<span class='cult'>The Geometer of Blood accepts this offering.</span>")
 		visible_message("<span class='notice'>\The [F] appears over \the [src].</span>")
 		cult.sacrificed += victim.mind
 		if(victim.mind == cult.sacrifice_target)
 			for(var/datum/mind/H in cult.current_antagonists)
 				if(H.current)
 					to_chat(H.current, "<span class='cult'>Your objective is now complete.</span>")
-		//TODO: other rewards?
-		/* old sac code - left there in case someone wants to salvage it
-		var/worth = 0
-		if(istype(H,/mob/living/carbon/human))
-			var/mob/living/carbon/human/lamb = H
-			if(lamb.species.rarity_value > 3)
-				worth = 1
 
-		if(H.mind == cult.sacrifice_target)
-
-		to_chat(usr, "<span class='warning'>The Geometer of Blood accepts this sacrifice, your objective is now complete.</span>")
-
-		to_chat(usr, "<span class='warning'>The Geometer of Blood accepts this [worth ? "exotic " : ""]sacrifice.</span>")
-
-		to_chat(usr, "<span class='warning'>The Geometer of blood accepts this sacrifice.</span>")
-		to_chat(usr, "<span class='warning'>However, this soul was not enough to gain His favor.</span>")
-
-		to_chat(usr, "<span class='warning'>The Geometer of blood accepts this sacrifice.</span>")
-		to_chat(usr, "<span class='warning'>However, a mere dead body is not enough to satisfy Him.</span>")
-		*/
 		to_chat(victim, "<span class='cult'>The Geometer of Blood claims your body.</span>")
 		victim.dust()
 	if(victim)
@@ -488,10 +469,10 @@
 		victim = M
 	if(!victim)
 		return fizzle(user)
-	if(!victim.vessel.has_reagent("blood", 20))
+	if(!victim.vessel.has_reagent(/datum/reagent/blood, 20))
 		to_chat(user, "<span class='warning'>This body has no blood in it.</span>")
 		return fizzle(user)
-	victim.vessel.remove_reagent("blood", 20)
+	victim.vessel.remove_reagent(/datum/reagent/blood, 20)
 	admin_attack_log(user, victim, "Used a blood drain rune.", "Was victim of a blood drain rune.", "used a blood drain rune on")
 	speak_incantation(user, "Yu[pick("'","`")]gular faras desdae. Havas mithum javara. Umathar uf'kal thenar!")
 	user.visible_message("<span class='warning'>Blood flows from \the [src] into \the [user]!</span>", "<span class='cult'>The blood starts flowing from \the [src] into your frail mortal body. [capitalize(english_list(heal_user(user), nothing_text = "you feel no different"))].</span>", "You hear liquid flow.")
@@ -505,7 +486,7 @@
 	var/use
 	use = min(charges, user.species.blood_volume - user.vessel.total_volume)
 	if(use > 0)
-		user.vessel.add_reagent("blood", use)
+		user.vessel.add_reagent(/datum/reagent/blood, use)
 		charges -= use
 		statuses += "you regain lost blood"
 		if(!charges)
@@ -558,14 +539,13 @@
 				damaged -= fix
 	/* this is going to need rebalancing
 	if(charges)
-		user.ingested.add_reagent("hell_water", charges)
+		user.ingested.add_reagent(/datum/reagent/hell_water, charges)
 		statuses += "you feel empowered"
 	*/
 	return statuses
 
 /datum/reagent/hell_water
 	name = "Hell water"
-	id = "hell_water"
 	reagent_state = LIQUID
 	color = "#0050a177"
 	metabolism = REM * 0.1
@@ -627,7 +607,7 @@
 		to_chat(user, "<span class='warning'>This rune needs to be placed on the defiled ground.</span>")
 		return fizzle(user)
 	speak_incantation(user, "N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
-	user.put_in_hands(new /obj/item/weapon/melee/cultblade(user))
+	user.put_in_hands(new /obj/item/weapon/material/sword/cult(user, "cult"))
 	qdel(src)
 
 /obj/effect/rune/shell
@@ -842,7 +822,7 @@
 	qdel(src)
 
 /obj/effect/rune/imbue/stun
-	cultname = "stun imbue"
+	cultname = "destroy technology imbue"
 	papertype = /obj/item/weapon/paper/talisman/stun
 
 /obj/effect/rune/imbue/emp

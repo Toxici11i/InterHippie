@@ -729,8 +729,9 @@ var/list/name_to_material
 
 /material/cult
 	name = "cult"
-	display_name = "disturbing stone"
+	display_name = "enchanted basalt"
 	icon_base = "cult"
+	hardness = 60
 	icon_colour = "#402821"
 	icon_reinf = "reinf_cult"
 	shard_type = SHARD_STONE_PIECE
