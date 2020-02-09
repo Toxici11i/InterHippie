@@ -226,10 +226,8 @@
 /obj/item/weapon/twohanded/offhand
 	name = "offhand"
 	icon_state = "offhand"
-	canremove = 0
 	w_class = ITEM_SIZE_NO_CONTAINER
-	flags = ABSTRACT | NOBLOODY
-	//resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	obj_flags = ATOM_FLAG_NO_BLOOD//ABSTRACT | NOBLOODY
 
 /*
 /obj/item/weapon/twohanded/offhand/Destroy()
@@ -238,7 +236,6 @@
 		I.wielded = FALSE
 		I.update_twohanding()
 */
-
 /obj/item/weapon/twohanded/offhand/unwield()
 	//if(wielded)//Only delete if we're wielded
 	wielded = FALSE
@@ -249,17 +246,14 @@
 		wielded = FALSE
 		qdel(src)
 
-/obj/item/weapon/twohanded/offhand/dropped()
-	..()
-	loc = null
-	if(!QDELETED(src))
-		qdel(src)
+/obj/item/weapon/twohanded/offhand/dropped(mob/user)
 	var/obj/item/I = user.get_active_hand()
 	var/obj/item/II = user.get_inactive_hand()
 	if(I)
 		I.unwield(user)
 	if(II)
 		II.unwield(user)
+	qdel(src)
 
 
 
