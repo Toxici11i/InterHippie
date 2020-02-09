@@ -227,7 +227,8 @@
 	name = "offhand"
 	icon_state = "offhand"
 	w_class = ITEM_SIZE_NO_CONTAINER
-	obj_flags = ATOM_FLAG_NO_BLOOD//ABSTRACT | NOBLOODY
+	flags = ABSTRACT | NOBLOODY
+	//resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /*
 /obj/item/weapon/twohanded/offhand/Destroy()
