@@ -190,13 +190,13 @@
 	taste_description = "sickness"
 	reagent_state = LIQUID
 	color = "#C8A5DC"
-	overdose = 20
+	overdose = 40
 	scannable = 1
 	metabolism = 0.02
 	flags = IGNORE_MOB_SIZE
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_PAINKILLER, 10)
+	M.add_chemical_effect(CE_PAINKILLER, 20)
 
 /datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -212,7 +212,7 @@
 	taste_description = "sourness"
 	reagent_state = LIQUID
 	color = "#CB68FC"
-	overdose = 10
+	overdose = 30
 	scannable = 1
 	metabolism = 0.02
 	flags = IGNORE_MOB_SIZE
@@ -230,11 +230,11 @@
 /datum/reagent/oxycodone
 	name = "Oxycodone"
 	id = "oxycodone"
-	description = "An effective and very addictive painkiller."
+	description = "An effective and very addictive painkiller. You can overdose quickly."
 	taste_description = "bitterness"
 	reagent_state = LIQUID
 	color = "#800080"
-	overdose = 5
+	overdose = 20
 	metabolism = 0.02
 	flags = IGNORE_MOB_SIZE
 
