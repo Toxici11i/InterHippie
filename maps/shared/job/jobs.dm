@@ -7,7 +7,7 @@
 						/datum/job/doctor/undertaker,
 						/datum/job/medassist,
 						/datum/job/hos,
-						///datum/job/detective,
+						/datum/job/detective,
 						/datum/job/officer,
 						///datum/job/ai,
 						/datum/job/cadet,
@@ -23,7 +23,7 @@
 						/datum/job/chaplain,
 						/datum/job/janitor,
 						/datum/job/arbiter,
-						/datum/job/supreme_arbiter						
+						/datum/job/supreme_arbiter
 						///datum/job/rd,
 						///datum/job/scientist,
 						///datum/job/raider,
@@ -55,7 +55,7 @@
 						/datum/job/chaplain,
 						/datum/job/janitor,
 						/datum/job/arbiter,
-						/datum/job/supreme_arbiter						
+						/datum/job/supreme_arbiter
 						///datum/job/rd,
 						///datum/job/scientist,
 						///datum/job/raider,
@@ -88,7 +88,7 @@
 						/datum/job/janitor,
 						///datum/job/cyborg,
 						/datum/job/arbiter,
-						/datum/job/supreme_arbiter,						
+						/datum/job/supreme_arbiter,
 						/datum/job/rd,
 						/datum/job/scientist
 						///datum/job/raider,
@@ -104,6 +104,7 @@
 	ideal_character_age = 21
 	alt_titles = null
 	social_class = SOCIAL_CLASS_MIN
+	access = list(access_maint_tunnels)
 	total_positions = 10
 	spawn_positions = 0
 
@@ -244,11 +245,11 @@
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
-			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks)
+			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks, access_detoffice)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
-			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks)
+			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks, access_detoffice)
 	minimal_player_age = 7
 	outfit_type = /decl/hierarchy/outfit/job/security/head_peacekeeper
 	social_class = SOCIAL_CLASS_HIGH
@@ -277,6 +278,7 @@
 		H.add_stats(rand(11,16), rand(10,14), rand(7,10))
 		H.add_skills(rand(60, 75), rand(60,75))
 
+
 /datum/job/detective
 	title = "Detective"
 	department = "Security"
@@ -285,8 +287,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	economic_modifier = 3
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks)
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_detoffice)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_detoffice)
 	minimal_player_age = 0
 	outfit_type = /decl/hierarchy/outfit/job/security/detective
 

@@ -226,10 +226,10 @@
 /obj/item/weapon/twohanded/offhand
 	name = "offhand"
 	icon_state = "offhand"
-	canremove = 0
 	w_class = ITEM_SIZE_NO_CONTAINER
 	flags = ABSTRACT | NOBLOODY
 	//resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+
 /*
 /obj/item/weapon/twohanded/offhand/Destroy()
 	var/obj/item/I = user.get_active_hand()
@@ -255,6 +255,7 @@
 	if(II)
 		II.unwield(user)
 	qdel(src)
+
 
 
 /obj/item/ex_act(severity)

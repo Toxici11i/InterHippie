@@ -7,7 +7,7 @@
 "ag" = (/obj/machinery/vending/snack,/obj/effect/floor_decal/newcorner/blue{tag = "icon-blue (NORTH)"; icon_state = "blue"; dir = 1},/turf/simulated/floor/tiled,/area/bridge)
 "ah" = (/obj/structure/table/woodentable,/obj/item/device/flashlight/lamp/green,/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/carpet,/area/bridge)
 "ai" = (/obj/structure/table/woodentable,/obj/item/weapon/paper_bin,/obj/item/weapon/pen,/turf/simulated/floor/carpet,/area/bridge)
-"aj" = (/obj/structure/table/reinforced,/obj/item/weapon/material/sword/sabre,/obj/effect/floor_decal/newcorner/red/solid,/turf/simulated/floor/tiled,/area/bridge)
+"aj" = (/obj/structure/table/reinforced,/obj/item/weapon/material/sword/sabre,/obj/effect/floor_decal/newcorner/red/solid,/obj/item/weapon/card/id/captains_spare,/turf/simulated/floor/tiled,/area/bridge)
 "ak" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/effect/floor_decal/newcorner/red/solid,/turf/simulated/floor/tiled,/area/bridge)
 "al" = (/obj/machinery/door/airlock/vault{req_access = list(20)},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/effect/floor_decal/newcorner/red/solid,/turf/simulated/floor/tiled,/area/bridge)
 "am" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/tiled,/area/bridge)
@@ -568,7 +568,7 @@
 "kV" = (/obj/structure/table/rack,/obj/item/weapon/towel/random,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/maintenance/dormitory)
 "kW" = (/obj/structure/ladder,/turf/simulated/floor/plating,/area/maintenance/dormitory)
 "kX" = (/obj/effect/landmark/map_data{height = 4},/turf/space,/area/space)
-"kY" = (/obj/structure/table/reinforced,/obj/item/weapon/card/id/captains_spare,/turf/simulated/floor/tiled,/area/bridge)
+"kY" = (/obj/structure/table/reinforced,/turf/simulated/floor/tiled,/area/bridge)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
