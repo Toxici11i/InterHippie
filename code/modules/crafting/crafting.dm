@@ -32,7 +32,7 @@
 			return 0
 	return 1
 
-/datum/crafting_recipe/proc/use_ingridients(var/list/things)
+/datum/crafting_recipe/proc/use_ingredients(var/list/things)
 	var/list/needs = parts.Copy()
 	var/list/to_del = list()
 	for(var/T in needs)
@@ -81,7 +81,7 @@
 		if(!can_make(user,spot))
 			user << "<span class='warning'>You are missing some things to make \a [name].</span>"
 			return 0
-		use_ingridients(spot.contents + user.contents)
+		use_ingredients(spot.contents + user.contents)
 		if(prob(base_chance))  //Add whatever skill bonuses here
 			for(var/T in result)
 				for(var/i = 1 to result[T])
