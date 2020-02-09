@@ -230,13 +230,7 @@
 	w_class = ITEM_SIZE_NO_CONTAINER
 	flags = ABSTRACT | NOBLOODY
 	//resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-/*
-/obj/item/weapon/twohanded/offhand/Destroy()
-	var/obj/item/I = user.get_active_hand()
-	if(I && I.wielded)
-		I.wielded = FALSE
-		I.update_twohanding()
-*/
+
 /obj/item/weapon/twohanded/offhand/unwield()
 	//if(wielded)//Only delete if we're wielded
 	wielded = FALSE
@@ -255,6 +249,13 @@
 	if(II)
 		II.unwield(user)
 	qdel(src)
+
+/obj/item/weapon/twohanded/offhand/Destroy()
+	var/obj/item/I = user.get_active_hand()
+	if(I && I.wielded)
+		I.wielded = FALSE
+		I.update_twohanding()
+
 
 
 /obj/item/ex_act(severity)
