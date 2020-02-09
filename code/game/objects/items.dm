@@ -248,12 +248,12 @@
 		qdel(src)
 
 /obj/item/weapon/twohanded/offhand/dropped(mob/user)
-	var/obj/item/I = user.get_active_hand()
-	var/obj/item/II = user.get_inactive_hand()
-	if(I)
-		I.unwield(user)
+	var/obj/item/II = user.get_active_hand()
+	var/obj/item/III = user.get_inactive_hand()
 	if(II)
 		II.unwield(user)
+	if(III)
+		III.unwield(user)
 	qdel(src)
 
 
