@@ -251,15 +251,15 @@
 
 /obj/item/weapon/twohanded/offhand/dropped()
 	..()
+	loc = null
+	if(!QDELETED(src))
+		qdel(src)
 	var/obj/item/I = user.get_active_hand()
 	var/obj/item/II = user.get_inactive_hand()
 	if(I)
 		I.unwield(user)
 	if(II)
 		II.unwield(user)
-	loc = null
-	if(!QDELETED(src))
-		qdel(src)
 
 
 
