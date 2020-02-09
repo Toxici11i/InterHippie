@@ -5,6 +5,11 @@
 	name = "bottle of Happy pills"
 	desc = "Highly illegal drug. When you want to see the rainbow."
 
+/obj/item/weapon/storage/pill_bottle/three_eye
+	name = "bottle of Three Eye pills"
+	desc = "Highly illegal drug. Stimulates rarely used portions of the brain."
+	startswith = list(/obj/item/weapon/reagent_containers/pill/three_eye = 10)
+
 /obj/item/weapon/storage/pill_bottle/happy/New()
 	..()
 	new /obj/item/weapon/reagent_containers/pill/happy( src )

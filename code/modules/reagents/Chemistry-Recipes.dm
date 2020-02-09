@@ -175,6 +175,23 @@
 	return null
 
 /* Common reactions */
+/datum/chemical_reaction/three_eye
+	name = "Three Eye"
+	result = /datum/reagent/three_eye
+	result_amount = 2
+	mix_message = "The surface of the oily, iridescent liquid twitches like a living thing."
+	reaction_sound = 'sound/effects/psi/power_used.ogg'
+
+	catalysts = list(
+		/datum/reagent/toxin/carpotoxin = 1,
+		/datum/reagent/enzyme = 1
+	)
+
+	required_reagents = list(
+		/datum/reagent/mindbreaker = 2,
+		/datum/reagent/toxin/phoron = 1,
+		/datum/reagent/blood = 1
+		)
 
 /datum/chemical_reaction/inaprovaline
 	name = "Inaprovaline"
