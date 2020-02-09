@@ -233,9 +233,9 @@
 
 /obj/item/weapon/twohanded/offhand/Destroy()
 	var/obj/item/I = user.get_active_hand()
-	if(I && I.wielded)
-		I.wielded = FALSE
-		I.update_twohanding()
+	if(wielded)
+		wielded = FALSE
+		update_twohanding()
 
 /obj/item/weapon/twohanded/offhand/unwield()
 	//if(wielded)//Only delete if we're wielded
@@ -248,12 +248,12 @@
 		qdel(src)
 
 /obj/item/weapon/twohanded/offhand/dropped(mob/user)
-	var/obj/item/II = user.get_active_hand()
-	var/obj/item/III = user.get_inactive_hand()
+	var/obj/item/I = user.get_active_hand()
+	var/obj/item/II = user.get_inactive_hand()
+	if(I)
+		I.unwield(user)
 	if(II)
 		II.unwield(user)
-	if(III)
-		III.unwield(user)
 	qdel(src)
 
 
