@@ -7,8 +7,8 @@
 	icon_state = "large"
 	randpixel = 8
 	sharp = 1
-	sharpness = 25
-	force = 15
+	sharpness = 10
+	force = 8
 	//edge = 1
 	w_class = ITEM_SIZE_SMALL
 	//force_divisor = 0.2 // 6 with hardness 30 (glass)
