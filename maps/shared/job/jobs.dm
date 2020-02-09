@@ -7,7 +7,7 @@
 						/datum/job/doctor/undertaker,
 						/datum/job/medassist,
 						/datum/job/hos,
-						///datum/job/detective,
+						/datum/job/detective,
 						/datum/job/officer,
 						///datum/job/ai,
 						/datum/job/cadet,
@@ -104,6 +104,7 @@
 	ideal_character_age = 21
 	alt_titles = null
 	social_class = SOCIAL_CLASS_MIN
+	access = list(access_maint_tunnels)
 	total_positions = 10
 	spawn_positions = 0
 
@@ -276,6 +277,7 @@
 		..()
 		H.add_stats(rand(11,16), rand(10,14), rand(7,10))
 		H.add_skills(rand(60, 75), rand(60,75))
+
 
 /datum/job/detective
 	title = "Detective"
